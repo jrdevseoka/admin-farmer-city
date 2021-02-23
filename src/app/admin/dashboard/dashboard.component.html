@@ -1,0 +1,145 @@
+<section id="main-section" class="leading-normal tracking-normal overflow-x-hidden">
+    <div class="flex flex-wrap">
+        <!-- Place hidden class on the main-navigation element -->
+        <app-admin-navigation>
+        </app-admin-navigation>
+        <!-- End of side navigation -->
+
+        <!-- Main Content -->
+        <div id="main-content" class="w-full bg-gray-100 pl-0 lg:pl-64 min-h-screen">
+            <!-- Top Navigation Bar -->
+            <div class="sticky top-0 z-40">
+                <div class="w-full h-20 px-6 bg-gray-100 border-b flex items-center justify-between">
+                    <div class="flex">
+                        <div class="lg:hidden flex items-center justify-between">
+                            <button class="text-farmer-green-shade-3 hover:text-farmer-green-shade-2 hover:border-farmer-white focus:outline-none navbar-burger">
+                              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-100 mb-20">
+                    <div class="home-section">
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <h1 class="text-2xl text-farmer-green font-sans font-bold mb-2">
+                                Welcome, Admin
+                            </h1>
+                            <a routerLink="/create-supplier" class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow hidden lg:block">Create Supplier</a>
+                        </div>
+                        <div class=" flex flex-wrap -mx-3 mb-20">
+                            <div class="w-full xl:w-1/2 px-3">
+                                <div class="w-full bg-farmer-green-shade-3 border text-farmer-green-shade-2 rounded-lg flex items-center p-6 justify-evenly mb-6 shadow-lg">
+                                    <div class="w-full flex">
+                                        <svg class="w-16 text-farmer-yellow-shade-2 h-16 mr-4 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5a1.99 1.99 0 0 1 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z"/></svg>
+                                        <div class="text-farmer-white">
+                                            <p class="font-bold text-3xl">56</p>
+                                            <p class="text-xl text-farmer-yellow-shade-2">Total Sales</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-full flex">
+                                        <svg class="w-16 h-16 text-farmer-yellow-shade-2 mr-4 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2m2 4h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2zm7-5a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
+                                        <div class="text-farmer-white">
+                                            <p class="font-bold text-3xl">R 534.00</p>
+                                            <p class="text-xl  text-farmer-yellow-shade-2">Total Profit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 1 1 0 5.292M15 21H3v-1a6 6 0 0 1 12 0v1zm0 0h6v-1a6 6 0 0 0-9-5.197M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl">10</p>
+                                        <p class="text-xl text-farmer-green">Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 1 1 0 5.292M15 21H3v-1a6 6 0 0 1 12 0v1zm0 0h6v-1a6 6 0 0 0-9-5.197M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl ">10</p>
+                                        <p class="text-xl  text-farmer-green">Orders</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <a class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow lg:hidden block w-full">Create a new supplier</a>
+                        </div>
+                        <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
+                            <div class="flex flex-row items-center">
+                                <div class="w-1/4">
+                                    <p class="text-xl mt-3 font-bold mb-4 text-left">Latest Applications</p>
+                                </div>
+
+                                <hr class="w-3/4 divide-y-2 border-farmer-green border-2">
+                            </div>
+                            <p class="text-base text-farmer-black">Summary of applications from farmers who want to supply the marketplace with their products.</p>
+                        </div>
+                        <!-- Supplier Application information -->
+                        <div class="flex flex-col">
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Farm Name
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Supplier Representative
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Representative Email
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Representative Phone No
+                                                    </th>
+                                                    <th scope="col" class="relative px-6 py-3">
+                                                        <span class="sr-only">Approve</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            Schoeman Boedery
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            Joe Schoeman
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            joe@schoemanboedery.co.za
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            081-346-0726
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <a class=" text-farmer-green hover:text-farmer-yellow-shade-2" [routerLink]="[ '/view-application'] ">Approve Application</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center ">
+                    <p class="mb-2 lg:mb-0 "> &copy; Copyright 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,211 @@
+<section id="main-section" class="leading-normal tracking-normal overflow-x-hidden">
+    <div class="flex flex-wrap">
+        <app-admin-navigation>
+        </app-admin-navigation>
+        <div id="main-content" class="w-full bg-gray-100 pl-0 lg:pl-64 min-h-screen">
+            <!-- Top Navigation Bar -->
+            <div class="sticky top-0 z-40">
+                <div class="w-full h-20 px-6 bg-gray-100 border-b flex items-center justify-between">
+                    <div class="flex">
+                        <div class="lg:hidden flex items-center justify-between">
+                            <button class="text-farmer-green-shade-3 hover:text-farmer-green-shade-2 hover:border-farmer-white focus:outline-none navbar-burger">
+                          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-100 mb-20">
+                    <div class="home-section">
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <h1 class="text-2xl text-farmer-green font-sans font-bold mb-2">
+                                Welcome, Admin
+                            </h1>
+                            <a routerLink="/create-supplier" class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow hidden lg:block">Create Supplier</a>
+                        </div>
+                        <div class=" flex flex-wrap -mx-3 mb-20">
+                            <div class="w-full xl:w-1/2 px-3">
+                                <div class="w-full bg-farmer-green-shade-3 border text-farmer-green-shade-2 rounded-lg flex items-center p-6 justify-evenly mb-6 shadow-lg">
+                                    <div class="w-full flex">
+                                        <svg class="w-16 text-farmer-yellow-shade-2 h-16 mr-4 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5a1.99 1.99 0 0 1 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z"/></svg>
+                                        <div class="text-farmer-white">
+                                            <p class="font-bold text-3xl">56</p>
+                                            <p class="text-xl text-farmer-yellow-shade-2">Total Sales</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-full flex">
+                                        <svg class="w-16 h-16 text-farmer-yellow-shade-2 mr-4 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2m2 4h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2zm7-5a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
+                                        <div class="text-farmer-white">
+                                            <p class="font-bold text-3xl">R 534.00</p>
+                                            <p class="text-xl  text-farmer-yellow-shade-2">Total Profit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 1 1 0 5.292M15 21H3v-1a6 6 0 0 1 12 0v1zm0 0h6v-1a6 6 0 0 0-9-5.197M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl">10</p>
+                                        <p class="text-xl text-farmer-green">Suppliers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 1 1 0 5.292M15 21H3v-1a6 6 0 0 1 12 0v1zm0 0h6v-1a6 6 0 0 0-9-5.197M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl ">10</p>
+                                        <p class="text-xl  text-farmer-green">Orders</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <a class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow lg:hidden block w-full">Create a new supplier</a>
+                        </div>
+                        <form (ngSubmit)="registerSupplier()" [formGroup]="supplierForm">
+                            <!-- Representative Details -->
+                            <section id="repInformation" formGroupName="repDetails" *ngIf="step == 1">
+                                <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
+                                    <div class="flex flex-row items-center">
+                                        <div class="w-1/4">
+                                            <p class="text-xl mt-3 font-bold mb-4 text-left">Representative Details</p>
+                                        </div>
+
+                                        <hr class="w-3/4 divide-y-2 border-farmer-green border-2">
+                                    </div>
+                                    <p class="text-base text-farmer-black">Information for person responsible for the sales of the your farm's products.</p>
+                                </div>
+                                <!-- Representative Details -->
+                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="fullName">Name:</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="Joe Smith" formControlName="fullName" name="fullName" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="phoneNo">Phone</label>
+                                        <input type="tel" class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" placeholder="000-726-0000" formControlName="phoneNo" name="phoneNo" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="emailAddress">Email</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" placeholder="joe@example.com" type="email" formControlName="emailAddress" name="emailAddress" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="password" class="block text-base font-medium text-farmer-green-shade-3">Password</label>
+                                        <input type="password" class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" formControlName="password" name="password" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="confirmPassword" class="block text-base font-medium text-farmer-green-shade-3">Confirm Password</label>
+                                        <input type="password" class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" formControlName="confirmPassword" name="confirmPassword" />
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Form Details -->
+                            <section id="farmInformation" formGroupName="farmDetails" *ngIf="step==2">
+                                <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
+                                    <div class="flex flex-row items-center">
+                                        <div class="w-1/4">
+                                            <p class="text-xl mt-3 font-bold mb-4 text-left">Farm Details</p>
+                                        </div>
+
+                                        <hr class="w-3/4 divide-y-2 border-farmer-green border-2">
+                                    </div>
+                                    <p class="text-base text-farmer-black">The marketplace will use the following information to collect products whenever an order has been placed.</p>
+                                </div>
+                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
+                                    <div class="block col-span-6 sm:col-span-4">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Farm Name</label>
+                                        <input placeholder="Smith Fruit & Veg Farm" class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="farmName" name="farmName" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="streetAddress">Street Address</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="streetAddress" name="streetAddress" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="province" id="province" class="block text-base font-medium text-farmer-green-shade-3">Province</label>
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="city">Town/City</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="city" name="city" />
+                                    </div>
+                                    <div class="col-span-1 sm:col-span-1">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="zipCode">ZIP Code</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="zipCode" name="zipCode" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="farmCertificate">Farm Certificate</label>
+                                        <div class="flex text-sm">
+                                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-farmer-green  hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-farmer-green-shade-2 py-4 px-3 mt-1">
+                              <span>Upload a farm certifcate</span>
+                              <input  formControlName="farmCertificate" id="file-upload" name="file-upload" accept="application/pdf" type="file" class="sr-only">
+                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="farmCIPCCertificate ">CIPC Certificate</label>
+                                        <div class="flex text-sm">
+                                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-farmer-green  hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-farmer-green-shade-2 py-4 px-3 mt-1">
+                            <span>Upload CIPC certifcate</span>
+                            <input id="file-upload" formControlName="farmCIPCCertificate"  name="file-upload" accept="application/pdf" type="file" class="sr-only">
+                          </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="paymentInformation" formGroupName="paymentDetails" *ngIf="step==3 ">
+                                <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
+                                    <div class="flex flex-row items-center">
+                                        <div class="w-1/4">
+                                            <p class="text-xl mt-3 font-bold mb-4 text-left">Payment Details</p>
+                                        </div>
+
+                                        <hr class="w-3/4 divide-y-2 border-farmer-green border-2">
+                                    </div>
+                                    <p class="text-base text-farmer-black">The marketplace will use the following information to pay your farm after their product has been delivered to their customer</p>
+                                </div>
+                                <!-- Payment Details -->
+                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Account Holder Name</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="Farm Name" formControlName="farmName" name="farmName " />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="bankCode">Branch Code</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="bankCode" name="bankCode " />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="bankType">Bank Type</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="bankType" name="bankType" />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="accountNo ">Account Number</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="accountNo" name=" accountNo " />
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="bankName ">Bank Name</label>
+                                        <input class="mt-1 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="bankName" name="bankName " />
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                <a (click)="previous()" *ngIf="step !=1" class="ml-8 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-farmer-yellow bg-transparent hover:bg-farmer-green-shade-1">Back</a>
+                                <button type="submit" *ngIf="step !=3 " class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                            Next
+                          </button>
+                                <button *ngIf="step==3" type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                              Create a new supplier
+                          </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
+                    <p class="mb-2 lg:mb-0"> &copy; Copyright 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

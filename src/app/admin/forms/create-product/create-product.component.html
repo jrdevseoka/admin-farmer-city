@@ -1,0 +1,38 @@
+<form (ngSubmit)="createNewProduct()">
+    <div>
+        <div>
+            <label for="productName">Product Name</label>
+            <input type="text" placeholder="i.e 2KG Qunioua">
+        </div>
+        <div>
+            <label for="supplierName">Supplier</label>
+            <select name="" id="supplierName">
+          <option value="" defaultSelected>Select Supplier Name</option>
+        </select>
+        </div>
+        <div>
+            <label for="productCategory">Category</label>
+            <select name="" id="productCategory">
+          <option value="" defaultSelected>Select Product Category</option>
+        </select>
+        </div>
+        <div>
+            <label for="productName">Unit Price</label>
+            <input type="text" placeholder="Unit Price in Rands">
+        </div>
+        <div>
+            <label for="productImage">Product Image</label>
+            <label>
+          <input type="file">
+        </label>
+        </div>
+        <div>
+            <label for="productCategory">Category</label>
+            <textarea name="" id="" cols="30"></textarea>
+        </div>
+        <div>
+            <button type="submit">Create a new product</button>
+        </div>
+    </div>
+
+</form>
