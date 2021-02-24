@@ -15,11 +15,11 @@ export class CreateSupplierComponent implements OnInit {
   constructor(private route: Router, private form: FormBuilder) { }
   supplierForm = this.form.group({
    userDetails: this.form.group({
-     fullName: [''],
-     emailAddress: [''],
-     phoneNumber: [''],
-     password: [''],
-     confirPassword: ['']
+     fullName: ['', Validators.required],
+     emailAddress: ['', Validators.required, Validators.email],
+     phoneNumber: ['', [Validators.pattern("^[0-9]*$"), Validators.required]],
+     password: ['', Validators.required],
+     confirPassword: ['', Validators.required, ConfirmPasswordValidator]
    }),
    farmDetails: this.form.group({
     farmName: [''],
