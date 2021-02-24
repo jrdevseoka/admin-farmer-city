@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Supplier } from 'src/app/models/supplier';
 import { ConfirmPasswordValidator } from "../customValidators.validator";
@@ -12,35 +12,33 @@ export class CreateSupplierComponent implements OnInit {
 
   //Set the representative form to default
   step : any = 1;
-  supplierForm = new  FormGroup({
-    repDetails: new FormGroup({
-      fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      emailAddress: new FormControl('', [Validators.required, Validators.email]),
-      phoneNo: new FormControl('', [Validators.required, Validators.pattern("^((\\+27-?)|0)?[0-9]{10}$")]),
-      password: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required),
+  constructor(private route: Router, private form: FormBuilder) { }
+  supplierForm = this.form.group({
+   userDetails: this.form.group({
+     fullName: [''],
+     emailAddress: [''],
+     phoneNumber: [''],
+     password: [''],
+     confirPassword: ['']
+   }),
+   farmDetails: this.form.group({
+    farmName: [''],
+    address: this.form.group({
+      streetAddress: [''],
+      city: [''],
+      province: [''],
+      zipCode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     }),
-    farmDetails: new FormGroup({
-      farmName: new FormControl('', Validators.required),
-      address: new FormGroup({
-        streetAddress: new FormControl('', Validators.required),
-        city: new FormControl('', Validators.required),
-        province: new FormControl('', Validators.required),
-        zipCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-      }),
-      status: new FormControl(''),
-      farmCertificate: new FormControl(''),
-      farmCIPCCertificate: new FormControl('', Validators.required),
+    paymentDetails: this.form.group({
+      accountHolderName: ['', Validators.required],
+      accountNo: ['', Validators.required],
+      accountType: ['', Validators.required],
+      bankName: ['', Validators.required],
+      bankCode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     }),
-    paymentDetails: new FormGroup({
-      accountHolderName: new FormControl('', Validators.required),
-      accountNo: new FormControl('', Validators.required),
-      accountType: new FormControl('', Validators.required),
-      bankName: new FormControl('', Validators.required),
-      bankCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    }),
+    status: ['Not Approved']
+   })
   })
-  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
