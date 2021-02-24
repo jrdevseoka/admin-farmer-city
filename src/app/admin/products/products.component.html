@@ -1,1 +1,132 @@
-<p>products works!</p>
+<section id="main-section" class="leading-normal tracking-normal overflow-x-hidden">
+    <div class="flex flex-wrap">
+        <app-admin-navigation>
+        </app-admin-navigation>
+        <div id="main-content" class="w-full bg-gray-100 pl-0 lg:pl-64 min-h-screen">
+            <!-- Top Navigation Bar -->
+            <div class="sticky top-0 z-40">
+                <div class="w-full h-20 px-6 bg-gray-100 border-b flex items-center justify-between">
+                    <div class="flex">
+                        <div class="lg:hidden flex items-center justify-between">
+                            <button class="text-farmer-green-shade-3 hover:text-farmer-green-shade-2 hover:border-farmer-white focus:outline-none navbar-burger">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                      </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-100 mb-20">
+                    <div class="home-section">
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <h1 class="text-2xl text-farmer-green font-sans font-bold mb-2">
+                                Hi, Admin
+                            </h1>
+                        </div>
+                        <div class=" flex flex-wrap justify-center -mx-3 mb-20">
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl">10</p>
+                                        <p class="text-l text-farmer-green">Total Products</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1 0 20.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0 1 20.488 9z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl">3</p>
+                                        <p class="text-l text-farmer-green">Products Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/2 lg:w-1/4 px-3">
+                                <div class="w-full bg-white text-farmer-green-shade-2 rounded flex items-center p-6 shadow-lg">
+                                    <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1 0 20.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0 1 20.488 9z"/></svg>
+                                    <div class="text-farmer-green">
+                                        <p class="font-bold text-3xl ">7</p>
+                                        <p class="text-l  text-farmer-green">Products Sold</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <a class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow lg:hidden block w-full">Create Product</a>
+                        </div>
+                        <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
+                            <div class="flex flex-row items-center">
+                                <div class="w-1/4">
+                                    <p class="text-xl mt-3 font-bold mb-4 text-left">Products</p>
+                                </div>
+
+                                <hr class="w-3/4 divide-y-2 border-farmer-green border-2">
+                            </div>
+                            <p class="text-base text-farmer-black">Add a new product to our e-commerce application</p>
+                        </div>
+                        <!-- Supplier Application information -->
+                        <div class="flex flex-col">
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Product Name
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Supplier Name
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Quantity
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-farmer-green-shade-2 uppercase tracking-wider">
+                                                        Price
+                                                    </th>
+                                                    <th scope="col" class="relative px-6 py-3">
+                                                        <span class="sr-only">Edit or Delete</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            2KG Quonoa Seeds
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            Schoeman Boedery
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            12
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                        <p class="text-base font-normal text-farmer-black text-left">
+                                                            65.99
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium bg-white">
+                                                        <a class=" text-farmer-green hover:text-farmer-yellow-shade-2 mr-3" [routerLink]="[ '/edit-supplier'] ">Edit</a>
+                                                        <a class=" bg-farmer-red py-3 px-4 rounded text-farmer-white hover:bg-farmer-red-shade-3" [routerLink]="[ '/view-application'] ">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
+                    <p class="mb-2 lg:mb-0"> &copy; Copyright 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,6 @@
+.form-farm-label {
+	@apply block text-base font-medium text-farmer-green-shade-3;
+}
+.form-farm-input{
+
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "farmecommerce-27a3a": {
+      "hosting": {
+        "admin-farmer-city": [
+          "farmecommerce-27a3a"
+        ]
+      }
+    }
+  }
+}

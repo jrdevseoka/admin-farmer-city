@@ -10,6 +10,7 @@ export class CreateProductComponent implements OnInit {
   productForm = new FormGroup({
     productDetails: new FormGroup({
       productName: new FormControl(''),
+      productSupplier: new FormControl(''),
       productDescription: new FormControl(''),
       productCategory: new FormControl(''),
       productQty: new FormControl(''),

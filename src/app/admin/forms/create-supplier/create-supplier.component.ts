@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Supplier } from 'src/app/models/supplier';
 import { ConfirmPasswordValidator } from "../customValidators.validator";
 @Component({
   selector: 'app-create-supplier',
@@ -8,6 +9,7 @@ import { ConfirmPasswordValidator } from "../customValidators.validator";
   styleUrls: ['./create-supplier.component.css']
 })
 export class CreateSupplierComponent implements OnInit {
+
   //Set the representative form to default
   step : any = 1;
   supplierForm = new  FormGroup({

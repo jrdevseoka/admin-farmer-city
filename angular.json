@@ -129,6 +129,10 @@
               "devServerTarget": "admin-farmer-city:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

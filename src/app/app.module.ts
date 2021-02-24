@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //Importing font awesome icons
@@ -24,7 +23,12 @@ import { ViewApplicationComponent } from './admin/dashboard/view-application/vie
 import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
 import { CreateProductComponent } from './admin/forms/create-product/create-product.component';
 import { CreatePromotionsComponent } from './admin/forms/create-promotions/create-promotions.component';
+import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './admin/users/users.component';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore} from '@angular/fire/firestore'
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +44,8 @@ import { CreatePromotionsComponent } from './admin/forms/create-promotions/creat
     EditProductComponent,
     CreateProductComponent,
     CreatePromotionsComponent,
+    LoginComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,9 @@ import { CreatePromotionsComponent } from './admin/forms/create-promotions/creat
     FontAwesomeModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestore
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]
