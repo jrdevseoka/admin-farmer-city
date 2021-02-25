@@ -27,4 +27,14 @@ export interface Supplier extends User, CompanyDetails, paymentDetails{
   supplierID: string;
   supplierStatus: string ;
 }
+export interface Product{
+  productID?: string,
+  productName: string,
+  productDescription: string,
+  productCategory: string,
+  productSupplier?: Supplier,
+  productPrice: string,
+  productQty: string,
+  productImage?: string
+}
 

@@ -28,7 +28,9 @@ import { UsersComponent } from './admin/users/users.component';
 
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore} from '@angular/fire/firestore'
+import { AngularFirestoreModule} from '@angular/fire/firestore'
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { RegisterSupplierComponent } from './register-supplier/register-supplier.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,7 @@ import { AngularFirestore} from '@angular/fire/firestore'
     CreatePromotionsComponent,
     LoginComponent,
     UsersComponent,
+    RegisterSupplierComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { AngularFirestore} from '@angular/fire/firestore'
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestore
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

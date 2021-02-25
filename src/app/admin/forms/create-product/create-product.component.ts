@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Product } from 'src/app/models/supplier';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-create-product',
@@ -7,23 +9,32 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
-  productForm = new FormGroup({
-    productDetails: new FormGroup({
-      productName: new FormControl(''),
-      productSupplier: new FormControl(''),
-      productDescription: new FormControl(''),
-      productCategory: new FormControl(''),
-      productQty: new FormControl(''),
-      productPrice: new FormControl(''),
-      productImage: new FormControl('')
-    })
-  });
-  constructor() { }
+  
+  productCategory = [
+    "Fruits",
+    "Vegetable",
+    "Meat",
+    "Diary"
+  ]
+  productSupplier = [
+    {
+    }
+  ]
+  product: Product = {
+    productName: '',
+    productCategory: '',
+    productDescription: '',
+    productPrice: '',
+    productQty: '',
+    productImage: ''
+  }
+  constructor(public crud: CrudService) { }
 
   ngOnInit(): void {
   }
+  
   createNewProduct()
   {
-
+    this.crud.createProduct(this.product);    
   }
 }

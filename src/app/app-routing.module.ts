@@ -11,7 +11,7 @@ import { SupplierComponent } from './admin/supplier/supplier.component';
 import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
-  {path: '', component:UsersComponent},
+  {path: '', component:CreateProductComponent},
   {path: 'create-supplier', component: CreateSupplierComponent},
   {path: 'create-product', component: CreateProductComponent},
   {path: 'success', component:SuccessComponent},
