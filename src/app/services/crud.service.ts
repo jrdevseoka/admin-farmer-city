@@ -31,6 +31,27 @@ export class CrudService {
       }))
     )
   }
+<<<<<<< Updated upstream
+=======
+   getSupplierInformation():AngularFirestoreCollection<Supplier>{
+     return this.supplier;
+   }
+   saveSupplierInformation(suppliers: Supplier)
+   {
+     return this.supplier.add({...suppliers});
+=======
+
+  constructor(private AfAuth :AngularFireAuth,private Firistore :AngularFirestore ) {
+   }
+   saveSupplierInformation(supplier:any)
+   {
+
+    // creating suppler sign In Details
+     this.AfAuth.createUserWithEmailAndPassword(supplier.repDetails.emailAddress,supplier.repDetails.password).then(results=>{
+
+      // saving data of supplier with unique id 
+      this.Firistore.collection('Suppliers').doc(results.user?.uid).set(supplier)
+>>>>>>> Stashed changes
 
   //Product Forms
   productForm = this.form.group({
