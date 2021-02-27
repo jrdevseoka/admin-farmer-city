@@ -1,9 +1,16 @@
 {
   "targets": {
+<<<<<<< HEAD
     "farmecommerce-27a3a": {
       "hosting": {
         "admin-farmer-city": [
           "farmecommerce-27a3a"
+=======
+    "crocery-app": {
+      "hosting": {
+        "admin-farmer-city": [
+          "crocery-app"
+>>>>>>> 1fd8adc502c756388c16c6ce9c2b9d0883e94561
         ]
       }
     }

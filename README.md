@@ -1,6 +1,10 @@
 # AdminFarmerCity
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0. This is the administrator and supplier
+dashboard for our fresh produce e-commerce app which will enable users to monitors orders, create products and users, and also create 
+or sales for our products.
+
+Created with tailwindCSS, Angular-CLI, Firebase Cloud Database, TypeScript
 
 ## Development server
 

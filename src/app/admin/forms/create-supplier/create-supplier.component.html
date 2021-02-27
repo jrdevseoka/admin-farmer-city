@@ -63,7 +63,7 @@
                         <div class="justify-between items-center my-6 lg:flex">
                             <a class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow lg:hidden block w-full">Create a new supplier</a>
                         </div>
-                        <form (ngSubmit)="registerSupplier()" [formGroup]="supplierForm">
+                        <form [formGroup]="supplierForm" (ngSubmit)="registerSupplier()" >
                             <!-- Representative Details -->
                             <section id="repInformation" formGroupName="repDetails" *ngIf="step == 1">
                                 <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
@@ -138,7 +138,7 @@
                                         <div class="flex text-sm">
                                             <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-farmer-green  hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-farmer-green-shade-2 py-4 px-3 mt-1">
                               <span>Upload a farm certifcate</span>
-                              <input  formControlName="farmCertificate" id="file-upload" name="file-upload" accept="application/pdf" type="file" class="sr-only">
+                              <input formControlName ="farmCertificate" id="file-upload" (change)="selectedImg($event)" name="file-upload" accept="application/pdf" type="file" class="sr-only">
                             </label>
                                         </div>
                                     </div>
