@@ -31,10 +31,11 @@ export class CreateSupplierComponent implements OnInit {
         city: new FormControl('', Validators.required),
         province: new FormControl('', Validators.required),
         zipCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+        farmCertificate: new FormControl(''),
+        farmCIPCCertificate: new FormControl('', Validators.required),
       }),
       status: new FormControl('Approved'),
-      farmCertificate: new FormControl(''),
-      farmCIPCCertificate: new FormControl('', Validators.required),
+
     }),
     paymentDetails: new FormGroup({
       accountHolderName: new FormControl('', Validators.required),

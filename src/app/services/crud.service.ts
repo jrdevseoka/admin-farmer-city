@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Supplier } from '../models/supplier';
-
 import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class CrudService {
 
   supplier: AngularFirestoreCollection<Supplier>
   constructor(private AfAuth :AngularFireAuth,private firestore :AngularFirestore ) {
-    this.supplier = firestore.collection('/Supplier');
+    this.supplier = firestore.collection('/suppliers');
    }
    saveSupplierInformation(supplier:any)
    {
@@ -20,7 +20,7 @@ export class CrudService {
     // creating suppler sign In Details
      this.AfAuth.createUserWithEmailAndPassword(supplier.repDetails.emailAddress,supplier.repDetails.password).then(results=>{
       // saving data of supplier with unique id
-      this.firestore.collection('Supplies').doc(results.user?.uid).set(supplier)
+      this.firestore.collection('suppliers').doc(results.user?.uid).set(supplier)
      }).catch(error=>{
       console.log(error.message)
      })
