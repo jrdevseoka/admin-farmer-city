@@ -24,6 +24,12 @@ import { ViewApplicationComponent } from './admin/dashboard/view-application/vie
 import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
 import { CreateProductComponent } from './admin/forms/create-product/create-product.component';
 import { CreatePromotionsComponent } from './admin/forms/create-promotions/create-promotions.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth'
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +53,11 @@ import { CreatePromotionsComponent } from './admin/forms/create-promotions/creat
     FontAwesomeModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "crocery-app": {
+      "hosting": {
+        "admin-farmer-city": [
+          "crocery-app"
+        ]
+      }
+    }
+  }
+}
