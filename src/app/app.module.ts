@@ -23,21 +23,15 @@ import { ViewApplicationComponent } from './admin/dashboard/view-application/vie
 import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
 import { CreateProductComponent } from './admin/forms/create-product/create-product.component';
 import { CreatePromotionsComponent } from './admin/forms/create-promotions/create-promotions.component';
-<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './admin/users/users.component';
-=======
+
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
 
->>>>>>> 1fd8adc502c756388c16c6ce9c2b9d0883e94561
-
-import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore} from '@angular/fire/firestore'
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,15 +57,8 @@ import { AngularFirestore} from '@angular/fire/firestore'
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestore
-=======
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireAuthModule
->>>>>>> 1fd8adc502c756388c16c6ce9c2b9d0883e94561
+    AngularFirestoreModule
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]
