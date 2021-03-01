@@ -50,9 +50,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="justify-between items-center my-6 lg:flex">
-                            <a class="bg-farmer-green hover:bg-farmer-green-shade-1 focus:outline-none rounded-lg px-6 py-2 text-farmer-white font-semibold shadow lg:hidden block w-full">Create a new supplier</a>
-                        </div>
                         <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
                             <div class="flex flex-row items-center">
                                 <div class="w-1/4">
@@ -67,26 +64,33 @@
                         <div class="flex flex-col">
                             <form (ngSubmit)="createNewProduct()" [formGroup]="productForm">
 
-                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6" formGroupName="productDetails">
+                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                     <div class="col-span-3 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="productName">Product Name</label>
                                         <input formControlName="productName" class="mt-1 py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="i.e 2KG Qunioua">
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="supplierName">Supplier</label>
-                                        <select class="mt-1 relative w-full text-gray-400 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" id="supplierName">
-                                    <option formControlName="productSupplier" class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="" defaultSelected>
-                                      <span class="block font-normal truncate" >Select Supplier Name</span>
-                                    </option>
-                            </select>
+                                        <select formControlName="productSupplier" class="mt-1 relative w-full text-gray-400 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
+                                            id="supplierName">
+                                            <option  class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="" defaultSelected>
+                                              Select Supplier Name
+                                           </option>
+                                           <option  value="schoeman">Schoeman Boedery</option>
+                                        </select>
+
                                     </div>
                                     <div class="col-span-full sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productCategory">Category</label>
-                                        <select class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" id="supplierName">
-                                  <option formControlName="productCategory" class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="">
-                                 <span class="block font-normal truncate" >Select Product Category</span>
-                               </option>
-                               </select>
+                                        <select formControlName="productCategory" class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
+                                            id="supplierName">
+                                          <option class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="">
+                                              Select Product Category
+                                          </option>
+                                          <option  class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="Vegetables">
+                                            Vegetables
+                                        </option>
+                                         </select>
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="productName">Unit Price</label>
@@ -106,9 +110,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="px-4 py-3 text-right sm:px-6">
-                                    <button class="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green "
-                                        type="submit">Create a new product</button>
+
+                                <div class="shadow">
+                                    <div class="flex">
+                                        <div class="bg-farmer-green w-16 text-center h-full items-center">
+
+                                        </div>
+                                        <div *ngIf="formStatus" class="bg-white border-r-4 border-green-400 w-full p-4">
+                                            <p class="text-farmer-black-shade-1 font-bold">
+                                                Congrats!
+                                            </p>
+                                            <p class="text-farmer-black text-sm">
+                                                Your product was succesfully added to the marketplace.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

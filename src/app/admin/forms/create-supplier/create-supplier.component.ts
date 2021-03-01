@@ -1,11 +1,16 @@
 import { CrudService } from './../../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Supplier } from 'src/app/models/supplier';
+import { Province, Supplier } from 'src/app/models/supplier';
 import { ConfirmPasswordValidator } from "../customValidators.validator";
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize} from "rxjs/operators";
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+
 @Component({
   selector: 'app-create-supplier',
   templateUrl: './create-supplier.component.html',
@@ -15,42 +20,60 @@ export class CreateSupplierComponent implements OnInit {
 
   //Set the representative form to default
   step : any = 1;
-  supplierForm = new  FormGroup({
 
-    repDetails: new FormGroup({
-      fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      emailAddress: new FormControl('', [Validators.required, Validators.email]),
-      phoneNo: new FormControl('', [Validators.required, Validators.pattern("^((\\+27-?)|0)?[0-9]{10}$")]),
-      password: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required),
-    }),
-    farmDetails: new FormGroup({
-      farmName: new FormControl('', Validators.required),
-      address: new FormGroup({
-        streetAddress: new FormControl('', Validators.required),
-        city: new FormControl('', Validators.required),
-        province: new FormControl('', Validators.required),
-        zipCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-        farmCertificate: new FormControl(''),
-        farmCIPCCertificate: new FormControl('', Validators.required),
+  constructor(
+  private route: Router,
+  private crud :CrudService,
+  private storage :AngularFireStorage,
+  private form: FormBuilder,
+  private firestore: AngularFirestore
+  ) { 
+   // this.provinceCollection = firestore.collection<Province>('provinces');
+  }
+
+supplierForm = this.form.group({
+      fullName: ['', [Validators.required, Validators.minLength(3)]],
+      emailAddress: ['', [Validators.required, Validators.email]],
+      phoneNo: ['', [Validators.required, Validators.pattern("^((\\+27-?)|0)?[0-9]{10}$")]],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      status: ['Approved'],
+    farmDetails: this.form.group({
+     farmName: ['', [Validators.required]],
+      address: this.form.group({
+        streetAddress: ['', [Validators.required]],
+        city: ['', Validators.required],
+        provinceName:  ['', Validators.required],
+        zipCode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+        farmCertificate: ['', [Validators.required]],
+        farmCIPCCertificate: ['', Validators.required],
       }),
-      status: new FormControl('Approved'),
-
     }),
-    paymentDetails: new FormGroup({
-      accountHolderName: new FormControl('', Validators.required),
-      accountNo: new FormControl('', Validators.required),
-      accountType: new FormControl('', Validators.required),
-      bankName: new FormControl('', Validators.required),
-      bankCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+    paymentDetails: this.form.group({
+      accountHolderName: ['', Validators.required],
+      accountNo: ['', [Validators.required]],
+      accountType:  ['', [Validators.required]],
+      bankName: ['', [Validators.required]],
+      bankCode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     }),
   })
 
-  constructor(private route: Router,private firebaService :CrudService, private storage :AngularFireStorage) { }
+  //Retrieving provinces from the database
+  provinces: Province[] = [];
   cetificate :any;
   url :any
  // url :string;
   ngOnInit(): void {
+    //Get province from DB
+    this.crud.getProvince().subscribe(data =>{
+      this.provinces = data.map(e =>{
+        return {
+          ...e.payload.doc.data() as Province,
+          id: e.payload.doc.id,
+          
+        }
+      })
+    })
   }
 
   //reading the fine input
@@ -84,7 +107,7 @@ export class CreateSupplierComponent implements OnInit {
     if(this.step == 4)
     {
       //uploadin fileto the database
-      var path = `Certificate/ ${this.cetificate.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
+    var path = `Certificate/ ${this.cetificate.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
     const fileRef = this.storage.ref(path)
      this.storage.upload(path,this.cetificate).snapshotChanges().pipe(
        finalize(()=>{
@@ -102,14 +125,9 @@ export class CreateSupplierComponent implements OnInit {
 
        })
      ).subscribe();
-
-
-
-
-
-      //this.route.navigate(['/success']);
         // calling fuction to create suplier infdor
-   this.firebaService.saveSupplierInformation(this.supplierForm.value)
+         this.crud.saveSupplierInformation(this.supplierForm.value);
+         this.route.navigate(['/success']);
 
     }
   }

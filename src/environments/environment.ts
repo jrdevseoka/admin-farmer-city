@@ -4,13 +4,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDl_W54RIf_fUv6zjKuZ8JfUzsOve7Gc7A",
-    authDomain: "farmecommerce-27a3a.firebaseapp.com",
-    projectId: "farmecommerce-27a3a",
-    storageBucket: "farmecommerce-27a3a.appspot.com",
-    messagingSenderId: "1024618926329",
-    appId: "1:1024618926329:web:04e78831f5310262779228",
-    measurementId: "G-5NE4MEMQKM"
+    apiKey: "AIzaSyCAQowcvKTiYux3xJpQhW6cPlOtWNHpHHQ",
+    authDomain: "farmcity-7af72.firebaseapp.com",
+    projectId: "farmcity-7af72",
+    storageBucket: "farmcity-7af72.appspot.com",
+    messagingSenderId: "654801835090",
+    appId: "1:654801835090:web:88b7c5ca9c5a001b97fb8b",
+    measurementId: "G-RPLM8EMWND"
   }
 };
 

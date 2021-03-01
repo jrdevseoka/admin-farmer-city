@@ -21,7 +21,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AdminNavigationComponent } from './admin/admin-navigation/admin-navigation.component';
 import { ViewApplicationComponent } from './admin/dashboard/view-application/view-application.component';
 import { EditProductComponent } from './admin/products/edit-product/edit-product.component';
-import { CreateProductComponent } from './admin/forms/create-product/create-product.component';
+import { CreateProductComponent } from './admin/products/create-product/create-product.component';
 import { CreatePromotionsComponent } from './admin/forms/create-promotions/create-promotions.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './admin/users/users.component';
@@ -31,6 +31,9 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
+import { OrdersComponent } from './admin/orders/orders.component';
+import { PaymentsComponent } from './admin/payments/payments.component';
+import { PromotionsComponent } from './admin/promotions/promotions.component';
 
 @NgModule({
   declarations: [
@@ -39,16 +42,19 @@ import { environment } from 'src/environments/environment';
     ProductsComponent,
     SupplierComponent,
     CreateSupplierComponent,
+    CreateProductComponent,
     CreateUserComponent,
     SuccessComponent,
     NavigationComponent,
     AdminNavigationComponent,
     ViewApplicationComponent,
     EditProductComponent,
-    CreateProductComponent,
     CreatePromotionsComponent,
     LoginComponent,
     UsersComponent,
+    OrdersComponent,
+    PaymentsComponent,
+    PromotionsComponent,
   ],
   imports: [
     BrowserModule,
