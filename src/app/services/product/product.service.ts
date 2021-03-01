@@ -11,10 +11,10 @@ export class ProductService {
   constructor(
     private firestore: AngularFirestore,
     ) { }
-  
+
   //Get Products by ID
   getProducts(){
-    return this.firestore.collection('products').doc().snapshotChanges();
+    return this.firestore.collection('products')
   }
   createProduct(product: Product)
   {

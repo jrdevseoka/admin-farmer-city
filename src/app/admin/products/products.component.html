@@ -89,25 +89,26 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
-                                                <tr *ngFor="let product of products">
+                                                <tr *ngFor="let item of products">
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            {{product.productName}}
+                                                            {{item.payload.doc.data().productName}}
+
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            Schoeman Boedery
+                                                          {{item.payload.doc.data().productSupplier}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            12
+                                                          {{item.payload.doc.data().productQty}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            65.99
+                                                          R{{item.payload.doc.data().ProductPrice}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium bg-white">
@@ -122,6 +123,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div *ngFor="let item of products">
+
+                  <p>{{item.payload.doc.data().productName}}</p>
+
                 </div>
                 <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
                     <p class="mb-2 lg:mb-0"> &copy; Copyright 2021</p>

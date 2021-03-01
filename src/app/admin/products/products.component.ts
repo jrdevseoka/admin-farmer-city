@@ -12,15 +12,16 @@ import { AngularFirestoreDocument } from '@angular/fire/firestore';
 })
 export class ProductsComponent implements OnInit {
   products:  any;
-  constructor(private productCRUD: ProductService) { 
+  constructor(private productCRUD: ProductService) {
   }
-  ngOnInit(): void {
-    this.productCRUD.getProducts().subscribe(
-      actions => {
-        console.log(actions);
-        this.products = actions;
-      }
-    )
+  ngOnInit(){
+    this.productCRUD.getProducts().snapshotChanges().subscribe(results=>{
+
+      
+      this.products = results;
+
+    })
+
   }
 
 }
