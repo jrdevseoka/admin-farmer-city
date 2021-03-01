@@ -62,7 +62,7 @@
                         </div>
                         <!-- Supplier Application information -->
                         <div class="flex flex-col">
-                            <form (ngSubmit)="createNewProduct()" [formGroup]="productForm">
+                            <form (ngSubmit)="createNewProduct(productForm.value)" [formGroup]="productForm">
 
                                 <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                     <div class="col-span-3 sm:col-span-3">
@@ -82,14 +82,16 @@
                                     </div>
                                     <div class="col-span-full sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productCategory">Category</label>
-                                        <select formControlName="productCategory" class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
+                                        <select  formControlName="productCategory" class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
                                             id="supplierName">
                                           <option class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="">
                                               Select Product Category
                                           </option>
-                                          <option  class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="Vegetables">
-                                            Vegetables
+                                          <ng-container *ngFor="let item of category" >
+                                          <option  class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="{{item.categoryName}}">
+                                            {{item.categoryName}}
                                         </option>
+                                      </ng-container>
                                          </select>
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
@@ -105,7 +107,7 @@
                                         <div class="flex text-sm">
                                             <label for="productImage" class="relative cursor-pointer bg-white rounded-md font-medium text-farmer-green  hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-farmer-green-shade-2 py-4 px-3 mt-1">
                                       <span>Upload</span>
-                                      <input   id="productImage" name="productImage" formControlName="productImage" accept="image/*" type="file" class="sr-only">
+                                      <input   id="productImage" (change)="selectedImg($event)" accept="image/*" type="file" class="sr-only">
                                     </label>
                                         </div>
                                     </div>
@@ -125,6 +127,9 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <button  type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                                      Add Product
+                                  </button>
                                 </div>
                             </form>
                         </div>

@@ -27,7 +27,7 @@ export class CreateSupplierComponent implements OnInit {
   private storage :AngularFireStorage,
   private form: FormBuilder,
   private firestore: AngularFirestore
-  ) { 
+  ) {
    // this.provinceCollection = firestore.collection<Province>('provinces');
   }
 
@@ -59,20 +59,14 @@ supplierForm = this.form.group({
   })
 
   //Retrieving provinces from the database
-  provinces: Province[] = [];
+  provinces: any;
   cetificate :any;
   url :any
  // url :string;
-  ngOnInit(): void {
-    //Get province from DB
-    this.crud.getProvince().subscribe(data =>{
-      this.provinces = data.map(e =>{
-        return {
-          ...e.payload.doc.data() as Province,
-          id: e.payload.doc.id,
-          
-        }
-      })
+  ngOnInit() {
+    this.crud.getProvince().valueChanges().subscribe(result=>{
+
+      this.provinces = result
     })
   }
 

@@ -1,8 +1,9 @@
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product, Supplier } from 'src/app/models/supplier';
-
+import { finalize} from "rxjs/operators";
 import { CrudService } from 'src/app/services/crud.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -13,11 +14,13 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class CreateProductComponent implements OnInit {
   public productForm: FormGroup;
+  category :any;
   constructor(
     private crud: CrudService,
-    private productCRUD: ProductService,
+    public productCRUD: ProductService,
     private form: FormBuilder,
-    private route: Router
+    private route: Router,
+    private storage : AngularFireStorage
     ) {
       this.productForm = this.form.group({
         productName: ['', Validators.required],
@@ -29,18 +32,75 @@ export class CreateProductComponent implements OnInit {
         productImage: ['']
     });
      }
-   
+
   productSupplier:  Supplier[] =[];
-  
-  ngOnInit(): void {
+  image : any;
+
+  ngOnInit() {
+
+
+    // Calling get category products to save them
+    this.productCRUD.getCategory().valueChanges().subscribe(result=>{
+
+      this.category = result;
+      
+
+    });
+
+
   }
-  formStatus: boolean = false; 
-  createNewProduct()
-  { 
-    if(this.productForm.valid){
-      return;    
+  selectedImg(event :any)
+  {
+
+
+    if(event.target.files&& event.target.files[0])
+    {
+      const reader= new FileReader();
+
+
+
+      reader.readAsDataURL(event.target.files[0]);
+      this.image = event.target.files[0];
+
+       //this.image=  reader.readAsDataURL(e.target.files[0]);
     }
-    this.productCRUD.createProduct(this.productForm.value);
+    else{
+
+      this.image=null
+
+    }
+
+
+  }
+  formStatus: boolean = false;
+  createNewProduct(form:any)
+  {
+
+    if(this.productForm.valid){
+
+      return;
+    }
+    // saving image to storage
+  var path = `Products/ ${this.image.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
+    const fileRef = this.storage.ref(path)
+     this.storage.upload(path,this.image).snapshotChanges().pipe(
+       finalize(()=>{
+
+        fileRef.getDownloadURL().subscribe((url)=>{
+        // updating the productImG with url
+        form['productImage']=url;
+        //saving product to database
+        this.productCRUD.createProduct(form);
+
+        })
+
+       })
+     ).subscribe();
+
+
+
+
    // this.route.navigate(['/products']);
+
   }
 }

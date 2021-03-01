@@ -41,5 +41,17 @@ export class ProductService {
       productPrice: product.productPrice,
       productSupplier: product.productSupplier
     })
+
   }
+  //Get provices
+
+
+
+    //get  category
+    getCategory()
+    {
+      return this.firestore.collection('categories');
+    }
+
+
 }

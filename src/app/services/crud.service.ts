@@ -11,6 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class CrudService {
 
   supplier: AngularFirestoreCollection<Supplier>
+  //province: Array<string>
   constructor(private AfAuth :AngularFireAuth,private firestore :AngularFirestore ) {
     this.supplier = firestore.collection('/Supplies');
    }
@@ -31,8 +32,10 @@ export class CrudService {
 
     //getProvince
     getProvince(){
-      return this.firestore.collection('provinces').snapshotChanges();
+      return this.firestore.collection('provinces');
     }
+
+
     getSuppliers()
     {
       return this.firestore.collection('Supplies').snapshotChanges();
