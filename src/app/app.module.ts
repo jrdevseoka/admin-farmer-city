@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrudService } from './services/crud.service';
 import { CreateUserComponent } from './admin/forms/create-user/create-user.component';
-import { CreateSupplierComponent } from './admin/forms/create-supplier/create-supplier.component';
+import { CreateSupplierComponent } from './admin/users/create-supplier/create-supplier.component';
 import { SuccessComponent } from './admin/forms/success/success.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AdminNavigationComponent } from './admin/admin-navigation/admin-navigation.component';
@@ -34,6 +34,8 @@ import { environment } from 'src/environments/environment';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { PaymentsComponent } from './admin/payments/payments.component';
 import { PromotionsComponent } from './admin/promotions/promotions.component';
+import { EditOrderComponent } from './admin/orders/edit-order/edit-order.component';
+import { CreatePromoComponent } from './admin/promotions/create-promo/create-promo.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { PromotionsComponent } from './admin/promotions/promotions.component';
     OrdersComponent,
     PaymentsComponent,
     PromotionsComponent,
+    EditOrderComponent,
+    CreatePromoComponent,
   ],
   imports: [
     BrowserModule,

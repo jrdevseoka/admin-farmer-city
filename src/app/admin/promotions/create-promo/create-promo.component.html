@@ -1,0 +1,84 @@
+<section id="main-section" class="leading-normal tracking-normal overflow-x-hidden">
+    <div class="flex flex-wrap">
+        <app-admin-navigation>
+        </app-admin-navigation>
+        <div id="main-content" class="w-full bg-gray-100 pl-0 lg:pl-64 min-h-screen">
+            <!-- Top Navigation Bar -->
+            <div class="sticky top-0 z-40">
+                <div class="w-full h-20 px-6 bg-gray-100 border-b flex items-center justify-between">
+                    <div class="flex">
+                        <div class="lg:hidden flex items-center justify-between">
+                            <button class="text-farmer-green-shade-3 hover:text-farmer-green-shade-2 hover:border-farmer-white focus:outline-none navbar-burger">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                      </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-100 mb-20">
+                    <div class="home-section">
+                        <div class="justify-between items-center my-6 lg:flex">
+                            <h1 class="text-2xl text-farmer-green font-sans font-bold mb-2">
+                                Hi, Admin
+                            </h1>
+                        </div>
+
+                        <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
+                            <div class="flex flex-row items-center">
+                                <div class="w-1/4">
+                                    <p class="text-xl mt-3 font-bold mb-4 text-left">Promotions</p>
+                                </div>
+
+                                <hr class="w-3/4 divide-y-2 border-farmer-green border-2">
+                            </div>
+                            <p class="text-base text-farmer-black">Promote your product.</p>
+                        </div>
+                        <!-- Supplier Application information -->
+                        <div class="flex flex-col">
+                            <form>
+
+                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
+                                    <div class="col-span-3 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="productName">Product Name</label>
+                                        <input formControlName="productName" class="mt-1 py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="i.e 2KG Qunioua">
+                                    </div>
+
+                                    <div class="col-span-full sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productCategory">Category</label>
+                                        <select formControlName="productCategory" class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
+                                            id="supplierName">
+                                        <option class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="">
+                                            Select Product
+                                        </option>
+                                        <ng-container  >
+                                        <option  class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="">
+                                         
+                                      </option>
+                                    </ng-container>
+                                       </select>
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="productName">Unit Price</label>
+                                        <input formControlName="productPrice" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="Unit Price in Rands">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label class="block text-base font-medium text-farmer-green-shade-3" for="productCategory">Category</label>
+                                        <textarea formControlName="productDescription" class="mt-1  focus:ring-farmer-green py-3 focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" cols="30"></textarea>
+                                    </div>
+
+                                </div>
+
+
+                                <button type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                                  Add Product
+                              </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
+                    <p class="mb-2 lg:mb-0"> &copy; Copyright 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

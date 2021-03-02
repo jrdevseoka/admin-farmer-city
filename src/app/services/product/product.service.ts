@@ -44,9 +44,9 @@ export class ProductService {
 
   }
   //Get provices
-
-
-
+  getSuppliers(){
+    return this.firestore.collection('Supplies');
+  }
     //get  category
     getCategory()
     {

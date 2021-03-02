@@ -98,22 +98,22 @@
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                          {{item.payload.doc.data().productSupplier}}
+                                                            {{item.payload.doc.data().productSupplier}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                          {{item.payload.doc.data().productQty}}
+                                                            {{item.payload.doc.data().productQty}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                          R{{item.payload.doc.data().ProductPrice}}
+                                                            R{{item.payload.doc.data().ProductPrice}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium bg-white">
                                                         <a class=" text-farmer-green hover:text-farmer-yellow-shade-2 mr-3" [routerLink]="[ '/edit-supplier'] ">Edit</a>
-                                                        <a class=" bg-farmer-red py-3 px-4 rounded text-farmer-white hover:bg-farmer-red-shade-3" [routerLink]="[ '/view-application'] ">Delete</a>
+                                                        <a class=" bg-farmer-red py-3 px-4 rounded text-farmer-white hover:bg-farmer-red-shade-3">Delete</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -124,13 +124,13 @@
                         </div>
                     </div>
                 </div>
-                <div *ngFor="let item of products">
+                <div *ngFor="let item of products ">
 
-                  <p>{{item.payload.doc.data().productName}}</p>
+                    <p>{{item.payload.doc.data().productName}}</p>
 
                 </div>
-                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
-                    <p class="mb-2 lg:mb-0"> &copy; Copyright 2021</p>
+                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center ">
+                    <p class="mb-2 lg:mb-0 "> &copy; Copyright 2021</p>
                 </div>
             </div>
         </div>

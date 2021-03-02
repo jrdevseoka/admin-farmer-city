@@ -76,13 +76,16 @@
                                             <option  class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="" defaultSelected>
                                               Select Supplier Name
                                            </option>
-                                           <option  value="schoeman">Schoeman Boedery</option>
+                                          <ng-container *ngFor="let item of supplier" >
+                                            <option  value="{{item.supplierName}}">{{item.supplierName}}</option>
+                                          </ng-container>
+                                          
                                         </select>
 
                                     </div>
                                     <div class="col-span-full sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productCategory">Category</label>
-                                        <select  formControlName="productCategory" class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
+                                        <select formControlName="productCategory" class="mt-1 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
                                             id="supplierName">
                                           <option class="flex items-center cursor-default  select-none relative py-4 pl-3 pr-9" value="">
                                               Select Product Category
@@ -127,7 +130,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <button  type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                                    <button type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
                                       Add Product
                                   </button>
                                 </div>

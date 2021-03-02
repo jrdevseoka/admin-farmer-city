@@ -33,20 +33,19 @@ export class CreateProductComponent implements OnInit {
     });
      }
 
-  productSupplier:  Supplier[] =[];
+  supplier: any;
   image : any;
-
   ngOnInit() {
 
 
     // Calling get category products to save them
     this.productCRUD.getCategory().valueChanges().subscribe(result=>{
-
-      this.category = result;
-      
+      this.category = result
 
     });
-
+    this.productCRUD.getSuppliers().valueChanges().subscribe(results =>{
+      this.supplier = results;
+    });
 
   }
   selectedImg(event :any)

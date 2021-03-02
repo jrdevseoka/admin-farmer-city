@@ -124,10 +124,11 @@
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="provinceName" id="province" class="block text-base font-medium text-farmer-green-shade-3">Province</label>
-                                        <select *ngFor="let province of provinces" class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm"
-                                            formControlName="provinceName" name="provinceName">
+                                        <select class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" formControlName="provinceName" name="provinceName">
                                           <option value="" defaultSelected>Select Province</option>
-                                           <option value="province.provinceName">{{province.provinceName}}</option>
+                                          <ng-container *ngFor="let province of provinces">
+                                            <option value="province.provinceName">{{province.provinceName}}</option>
+                                          </ng-container>
                                         </select>
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">

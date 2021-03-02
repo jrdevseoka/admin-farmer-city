@@ -1,9 +1,9 @@
-import { CrudService } from './../../../services/crud.service';
+import { CrudService } from '../../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Province, Supplier } from 'src/app/models/supplier';
-import { ConfirmPasswordValidator } from "../customValidators.validator";
+import { ConfirmPasswordValidator } from "../../forms/customValidators.validator";
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize} from "rxjs/operators";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
