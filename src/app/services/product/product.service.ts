@@ -53,5 +53,4 @@ export class ProductService {
       return this.firestore.collection('categories');
     }
 
-
 }

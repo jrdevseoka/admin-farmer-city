@@ -34,7 +34,7 @@
                             "src/styles.css"
                         ],
                         "scripts": [
-                            "node_modules/alpinejs/dist.alpine.js"
+                            "node_modules/alpinejs/dist/alpine.js"
                         ],
                         "customWebpackConfig": {
                             "path": "webpack.config.js"

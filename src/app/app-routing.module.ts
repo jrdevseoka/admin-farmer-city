@@ -24,8 +24,8 @@ const routes: Routes = [
   {path: 'orders', component: OrdersComponent},
   {path: 'edit-orders',component: EditOrderComponent},
   {path: 'promotions', component:PromotionsComponent},
-  {path: 'create-promotion', component: CreatePromoComponent},
-  
+  {path: 'create-promo', component: CreatePromoComponent},
+
 ];
 
 @NgModule({
