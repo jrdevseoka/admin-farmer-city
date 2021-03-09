@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Product } from 'src/app/models/supplier';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  private productCollection: AngularFirestoreCollection<Product>;
 
   constructor(
     private firestore: AngularFirestore,
-    ) { }
+    ) {
+      this.productCollection = firestore.collection<Product>('products');
+     }
 
   //Get Products by ID
   getProducts(){
@@ -48,9 +50,14 @@ export class ProductService {
     return this.firestore.collection('Supplies');
   }
     //get  category
-    getCategory()
-    {
+  getCategory()
+  {
       return this.firestore.collection('categories');
-    }
+  }
+  //Create Product Promo
+  createProductPromo()
+  {
+
+  }
 
 }

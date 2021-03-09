@@ -19,18 +19,22 @@ export class CreatePromoComponent implements OnInit {
     private productService: ProductService
     ) {
       this.productCollection = firestore.collection<Product>('products');
-      this.products = this.productCollection.snapshotChanges().pipe(
-        map(results => results.map(
-          a => {
-            const data = a.payload.doc.data() as Product
-            const id = a.payload.doc.id;
-            return {...data};
-          }
-        ))
-      );
+      this.products = this.productCollection.snapshotChanges().pipe(map(results => results.map(
+        e=> {
+          const data = e.payload.doc.data() as Product
+          const id = e.payload.doc.id;
+          return {...data};
+        }
+      )))
     }
 
   ngOnInit(): void {
-
+    this.products = this.productCollection.snapshotChanges().pipe(map(results => results.map(
+      e=> {
+        const data = e.payload.doc.data() as Product
+        const id = e.payload.doc.id;
+        return {...data};
+      }
+    )))
   }
 }
