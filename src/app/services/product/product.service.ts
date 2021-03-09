@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Product } from 'src/app/models/supplier';
@@ -54,10 +56,25 @@ export class ProductService {
   {
       return this.firestore.collection('categories');
   }
+  //getProductByID
+  getProductByID(id:string): Observable<Product[]>{
+    const productCollection = this.firestore.collection<Product[]>('products');
+    return productCollection.snapshotChanges()
+    .pipe(
+      map(changes=> changes.map(({payload:{doc}})=>{
+        const data = doc.data();
+        const id = doc.id
+        return {id, ...data};
+      })),
+      map((products: any)=> products.find((doc:any) => doc.id)))
+  }
   //Create Product Promo
-  createProductPromo()
+  createProductPromo(id: any)
   {
-
+    /*Retrieve the product from products collect using product id
+    *Create a promotions collection an then add product price * percentageOff
+    */
+   const productID = this.getProductByID(id);
   }
 
 }
