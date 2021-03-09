@@ -74,7 +74,6 @@ export class ProductService {
     /*Retrieve the product from products collect using product id
     *Create a promotions collection an then add product price * percentageOff
     */
-   const productID = this.getProductByID(id);
   }
 
 }

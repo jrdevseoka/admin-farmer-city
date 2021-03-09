@@ -40,5 +40,8 @@ export class CrudService {
     {
       return this.firestore.collection('Supplies').snapshotChanges();
     }
+    getProduct(id: string){
+      return this.firestore.collection('products').doc(id);
+    }
 
 }

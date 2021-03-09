@@ -2,11 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//Importing font awesome icons
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { faTachometerAlt as fasTachometerAlt, faCarrot as fasCarrot, faReceipt as fasReceipt, faTruck as fasTruck} from "@fortawesome/free-solid-svg-icons";
-import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
-
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
@@ -14,7 +9,7 @@ import { SupplierComponent } from './admin/supplier/supplier.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrudService } from './services/crud.service';
-import { CreateUserComponent } from './admin/forms/create-user/create-user.component';
+import { CreateUserComponent } from './admin/users/create-user/create-user.component';
 import { CreateSupplierComponent } from './admin/users/create-supplier/create-supplier.component';
 import { SuccessComponent } from './admin/forms/success/success.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -36,6 +31,7 @@ import { PaymentsComponent } from './admin/payments/payments.component';
 import { PromotionsComponent } from './admin/promotions/promotions.component';
 import { EditOrderComponent } from './admin/orders/edit-order/edit-order.component';
 import { CreatePromoComponent } from './admin/promotions/create-promo/create-promo.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -63,9 +59,9 @@ import { CreatePromoComponent } from './admin/promotions/create-promo/create-pro
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule,
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
@@ -74,8 +70,5 @@ import { CreatePromoComponent } from './admin/promotions/create-promo/create-pro
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary){
-    library.addIcons(fasTachometerAlt, fasCarrot,
-       fasReceipt, fasTruck);
-  }
+
  }

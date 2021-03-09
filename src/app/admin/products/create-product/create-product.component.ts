@@ -45,6 +45,7 @@ export class CreateProductComponent implements OnInit {
     });
     this.productCRUD.getSuppliers().valueChanges().subscribe(results =>{
       this.supplier = results;
+      console.log(results)
     });
 
   }

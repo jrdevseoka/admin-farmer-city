@@ -32,12 +32,14 @@ export interface Province {
   provinceName: string;
 }
 export interface Product {
+  payload: any;
   id: string;
   productName: string;
   productDescription: string;
   productQty: string;
   productPrice: string;
   productCategory: string;
+  promoStatus: string;
   productSupplier: any;
   productImage?: string;
 }
