@@ -34,16 +34,24 @@
                         </div>
                         <!-- Supplier Application information -->
                         <div class="flex flex-col">
-                            <form [formGroup]="formPromotion">
+                            <form [formGroup]="formPromotion" (ngSubmit)="createPromotion()">
 
-                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6" *ngIf="products | async">
-                                    <div class="col-span-6 sm:col-span-3">
+                                <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-3" >
                                         <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productName">Product Name</label>
-                                        <input formControlName="productName" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" placeholder="" value="{{products.productName}}" readonly>
+                                        <input type="text" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" formControlName="percentageOff" placeholder="10% off">
+                                        <!-- <select formControlName="productName" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg">
+                                            <option value="" defaultSelected> Select Product</option>
+                                            <ng-container *ngFor="let item of products | async">
+                                              <option value=" {{item.productName}}"> {{item.productName}}</option>
+                                            </ng-container>
+
+                                        </select> -->
+
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="productName">Percentage Off</label>
-                                        <input formControlName="percentageOff" class="mt-1 py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" placeholder="10% off">
+                                        <input type="text" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" formControlName="percentageOff" placeholder="10% off">
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="startDate">Start Date</label>
@@ -59,6 +67,13 @@
                               </button>
                             </form>
                         </div>
+                    </div>
+
+
+                    <div *ngIf="product" >
+
+                      <p>{{product.productName}}</p>
+
                     </div>
                 </div>
                 <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
