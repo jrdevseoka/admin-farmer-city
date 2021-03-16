@@ -56,7 +56,18 @@ export class CreatePromoComponent implements OnInit {
     // )
 
   }
-
+  validateDateLessThan(endDate: string, startDate: string) {
+    return (group: FormGroup): {[key: string]: any} =>{
+      let f = group.controls[startDate];
+      let t = group.controls[endDate];
+      if(f.value, t.value){
+        return {
+          dates: "Date from should not be lesst than Date to"
+        }
+      }
+      return {}
+    }
+  }
   createPromotion(){
     const rate = Number(this.formPromotion.get('percentageOff')?.value)/100
     let price =  Number(this.product.productPrice);
