@@ -1,5 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -18,6 +19,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class CreatePromoComponent implements OnInit {
   formPromotion: FormGroup;
   productsCollection: AngularFirestoreCollection<Product>;
+  today: string | null = new DatePipe("LOCALE_ID").transform(new Date, "yyyy-MM-dd");
  products: Observable<Product[]>;
  product: any;
   constructor(
@@ -30,8 +32,8 @@ export class CreatePromoComponent implements OnInit {
       this.formPromotion = this.form.group({
         productName: ['', Validators.required],
         percentageOff: ['', Validators.required],
-        dateStarted: [, Validators.required],
-        dateEnded: ['', Validators.required],
+        dateStarted: [ this.today, Validators.required],
+        dateEnded: [this.today, Validators.required],
     });
     this.productsCollection = firestore.collection<Product>('products');
     this.products = this.productsCollection.valueChanges();
