@@ -30,7 +30,7 @@ export class CreatePromoComponent implements OnInit {
       this.formPromotion = this.form.group({
         productName: ['', Validators.required],
         percentageOff: ['', Validators.required],
-        dateStarted: ['', Validators.required],
+        dateStarted: [, Validators.required],
         dateEnded: ['', Validators.required],
     });
     this.productsCollection = firestore.collection<Product>('products');
@@ -56,35 +56,22 @@ export class CreatePromoComponent implements OnInit {
   }
 
   createPromotion(){
+    const rate = Number(this.formPromotion.get('percentageOff')?.value)/100
+    let price =  Number(this.product.productPrice);
+    let promoPrice: number;
 
-    this.firestore.collection('products').snapshotChanges().subscribe(
-      e => {
-        e.map( results =>{
-          const productinfo = results.payload.doc.data() as Product;
-          console.log(this.product.productPrice);
-          const rate = Number(this.formPromotion.get('percentageOff')?.value)/100
-          let price =  Number(productinfo.productPrice);
+    const promotionPrice = rate * Number(this.product.productPrice);
+    promoPrice = price - promotionPrice;
+    promoStatus: true;
+    let newPrice : any  = {
+      'promoPrice' : promoPrice,
+      'promoStatus': true
+    }
+    this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err.message)
+    })
 
-          const promotionPrice = rate * Number(productinfo.productPrice);
-          console.log('Promotion rate is '+ rate)
-          console.log('Promotion Price is '+ promotionPrice);
-          //Calculating new product Price
-          price = price - promotionPrice;
-
-          let newPrice : any  = {
-            'productPrice' : price
-          }
-
-
-          console.log('New item price ' +price);
-          this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
-            console.log(res)
-          }).catch(err => {
-            console.log(err.message)
-          })
-
-        })
-      }
-    )
   }
 }

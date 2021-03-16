@@ -37,9 +37,9 @@
                             <form [formGroup]="formPromotion" (ngSubmit)="createPromotion()">
 
                                 <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
-                                    <div class="col-span-6 sm:col-span-3" >
+                                    <div class="col-span-6 sm:col-span-3" *ngIf="product">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productName">Product Name</label>
-                                        <input type="text" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" formControlName="percentageOff" placeholder="10% off">
+                                        <input type="text" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg text-farmer-green" formControlName="percentageOff" placeholder="{{product.productName}}" readonly>
                                         <!-- <select formControlName="productName" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg">
                                             <option value="" defaultSelected> Select Product</option>
                                             <ng-container *ngFor="let item of products | async">
@@ -67,14 +67,7 @@
                               </button>
                             </form>
                         </div>
-                    </div>
-
-
-                    <div *ngIf="product" >
-
-                      <p>{{product.productName}}</p>
-
-                    </div>
+                      </div>
                 </div>
                 <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center">
                     <p class="mb-2 lg:mb-0"> &copy; Copyright 2021</p>
