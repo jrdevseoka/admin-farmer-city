@@ -18,7 +18,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class CreatePromoComponent implements OnInit {
   formPromotion: FormGroup;
 
- products: Observable<Product[]>;
+ products: any;
   constructor(
     private firestore: AngularFirestore,
     private productService: ProductService,
@@ -32,16 +32,16 @@ export class CreatePromoComponent implements OnInit {
         dateStarted: ['', Validators.required],
         dateEnded: ['', Validators.required],
     });
-    this.products = firestore.collection<Product>('products').valueChanges();
+   // this.products = firestore.collection<Product>('products').valueChanges();
     }
     productID: any;
   ngOnInit(){
     //get product ket
      this.productID = this.activated.snapshot.paramMap.get('ref');
      console.log(this.productID);
-    // this.crud.getProduct(this.productID).valueChanges().subscribe(results =>{
-    //   this.products = results;
-    // });
+     this.crud.getProduct(this.productID).valueChanges().subscribe(results =>{
+       this.products = results;
+     });
     console.log(this.products)
   }
 }
