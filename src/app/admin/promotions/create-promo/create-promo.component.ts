@@ -67,6 +67,7 @@ export class CreatePromoComponent implements OnInit {
       return {}
     }
   }
+  //
   createPromotion(){
     const rate = Number(this.formPromotion.get('percentageOff')?.value)/100
     let price =  Number(this.product.productPrice);
