@@ -39,7 +39,10 @@ export interface Product {
   productQty: string;
   productPrice: string;
   productCategory: string;
+  promoPrice: string;
   promoStatus: string;
+  dateStarted: Date;
+  dateEnded: Date;
   productSupplier: any;
   productImage?: string;
 }

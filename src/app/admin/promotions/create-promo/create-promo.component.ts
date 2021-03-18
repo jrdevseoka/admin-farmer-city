@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import 'alpinejs';
+import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/models/supplier';
@@ -18,14 +19,9 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class CreatePromoComponent implements OnInit {
   formPromotion: FormGroup;
-<<<<<<< HEAD
-  productsCollection: AngularFirestoreCollection<Product>;
- products: Observable<Product[]>;
  product: any;
-=======
-
  products: any;
->>>>>>> 94b62d57e8b1f91d6bf0f36ce2f3002417d03c96
+
   constructor(
     private firestore: AngularFirestore,
     private productService: ProductService,
@@ -39,31 +35,17 @@ export class CreatePromoComponent implements OnInit {
         dateStarted: [, Validators.required],
         dateEnded: [, Validators.required],
     });
-<<<<<<< HEAD
-    this.productsCollection = firestore.collection<Product>('products');
-    this.products = this.productsCollection.valueChanges();
-=======
-   // this.products = firestore.collection<Product>('products').valueChanges();
->>>>>>> 94b62d57e8b1f91d6bf0f36ce2f3002417d03c96
+
     }
     productID: any;
   ngOnInit(){
     //get product ket
      this.productID = this.activated.snapshot.paramMap.get('ref');
      console.log(this.productID);
-<<<<<<< HEAD
     this.crud.getProduct(this.productID).valueChanges().subscribe(results =>{
     this.product = results;
     console.log('Promotion id' + this.product);
      });
-    // this.products = this.productService.getProducts().snapshotChanges().pipe(
-    //   map(actions => actions.map( e => {
-    //     const data =  e.payload.doc.data() as Product;
-    //     const id = e.payload.doc.id;
-    //     return {...data}
-    //   }))
-    // )
-
   }
   validateDateLessThan(endDate: string, startDate: string) {
     return (group: FormGroup): {[key: string]: any} =>{
@@ -88,19 +70,17 @@ export class CreatePromoComponent implements OnInit {
     promoStatus: true;
     let newPrice : any  = {
       'promoPrice' : promoPrice,
-      'promoStatus': true
+      'promoStatus': true,
+      'dateStarted': new Date(this.formPromotion.get('dateStarted')?.value).toISOString(),
+      'dateEnded': new Date(this.formPromotion.get('dateEnded')?.value).toISOString(),
     }
-    this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
-      console.log(res)
-    }).catch(err => {
-      console.log(err.message)
-    })
-
-=======
-     this.crud.getProduct(this.productID).valueChanges().subscribe(results =>{
-       this.products = results;
-     });
-    console.log(this.products)
->>>>>>> 94b62d57e8b1f91d6bf0f36ce2f3002417d03c96
+    if(this.formPromotion.valid){
+      this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err.message)
+      })
+    }
+    
   }
 }
