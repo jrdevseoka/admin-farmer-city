@@ -18,9 +18,14 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class CreatePromoComponent implements OnInit {
   formPromotion: FormGroup;
+<<<<<<< HEAD
   productsCollection: AngularFirestoreCollection<Product>;
  products: Observable<Product[]>;
  product: any;
+=======
+
+ products: any;
+>>>>>>> 94b62d57e8b1f91d6bf0f36ce2f3002417d03c96
   constructor(
     private firestore: AngularFirestore,
     private productService: ProductService,
@@ -34,14 +39,19 @@ export class CreatePromoComponent implements OnInit {
         dateStarted: [, Validators.required],
         dateEnded: [, Validators.required],
     });
+<<<<<<< HEAD
     this.productsCollection = firestore.collection<Product>('products');
     this.products = this.productsCollection.valueChanges();
+=======
+   // this.products = firestore.collection<Product>('products').valueChanges();
+>>>>>>> 94b62d57e8b1f91d6bf0f36ce2f3002417d03c96
     }
     productID: any;
   ngOnInit(){
     //get product ket
      this.productID = this.activated.snapshot.paramMap.get('ref');
      console.log(this.productID);
+<<<<<<< HEAD
     this.crud.getProduct(this.productID).valueChanges().subscribe(results =>{
     this.product = results;
     console.log('Promotion id' + this.product);
@@ -86,5 +96,11 @@ export class CreatePromoComponent implements OnInit {
       console.log(err.message)
     })
 
+=======
+     this.crud.getProduct(this.productID).valueChanges().subscribe(results =>{
+       this.products = results;
+     });
+    console.log(this.products)
+>>>>>>> 94b62d57e8b1f91d6bf0f36ce2f3002417d03c96
   }
 }
