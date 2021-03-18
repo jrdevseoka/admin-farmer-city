@@ -5,7 +5,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import 'alpinejs';
-import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/models/supplier';
@@ -68,11 +67,12 @@ export class CreatePromoComponent implements OnInit {
     const promotionPrice = rate * Number(this.product.productPrice);
     promoPrice = price - promotionPrice;
     promoStatus: true;
+
     let newPrice : any  = {
       'promoPrice' : promoPrice,
       'promoStatus': true,
       'dateStarted': new Date(this.formPromotion.get('dateStarted')?.value).toISOString(),
-      'dateEnded': new Date(this.formPromotion.get('dateEnded')?.value).toISOString(),
+      'dateEnded': new Date(this.formPromotion.get('dateEnded')?.value),
     }
     if(this.formPromotion.valid){
       this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
@@ -81,6 +81,22 @@ export class CreatePromoComponent implements OnInit {
         console.log(err.message)
       })
     }
-    
+
+  }
+  //Automatically Cancel the promo on the app
+  AutoCancelPromotion(){
+    let dateEnded =  new Date(this.formPromotion.get('dateEnded')?.value);
+    let currentDate = new Date();
+    if(dateEnded > currentDate){
+     let  cancelPromo: any ={
+       'promoPrice': 0,
+       'promoStatus': false
+     }
+      this.firestore.collection('products').doc(this.productID).update(cancelPromo).then(results=>{
+        console.log('Promo has ended');
+      }).catch(err=> {
+        console.log(err.message)
+      })
+    }
   }
 }
