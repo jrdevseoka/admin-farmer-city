@@ -12,9 +12,11 @@ import { ProductsComponent } from './admin/products/products.component';
 import { SupplierComponent } from './admin/supplier/supplier.component';
 import { PromotionsComponent } from './admin/promotions/promotions.component';
 import { CreatePromoComponent } from './admin/promotions/create-promo/create-promo.component';
+import { ViewProfileComponent } from './admin/profile/view-profile/view-profile.component';
+import { EditProfileComponent } from './admin/profile/edit-profile/edit-profile.component';
 
 const routes: Routes = [
-  {path: '', component: CreatePromoComponent},
+  {path: '', component: DashboardComponent},
   {path: 'create-supplier', component: CreateSupplierComponent},
   {path: 'create-product', component: CreateProductComponent},
   {path: 'supplier', component:SupplierComponent},
@@ -22,9 +24,11 @@ const routes: Routes = [
   {path:'view-application', component: ViewApplicationComponent},
   {path:'products', component: ProductsComponent},
   {path: 'orders', component: OrdersComponent},
-  {path: 'edit-orders',component: EditOrderComponent},
+  {path: 'edit-orders/:ref',component: EditOrderComponent},
   {path: 'promotions', component:PromotionsComponent},
   {path: 'create-promo/:ref', component: CreatePromoComponent},
+  {path: 'edit-profile', component: EditProfileComponent},
+  {path: 'view-profile', component: ViewProfileComponent}
 
 ];
 

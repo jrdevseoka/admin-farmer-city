@@ -32,6 +32,8 @@ import { PromotionsComponent } from './admin/promotions/promotions.component';
 import { EditOrderComponent } from './admin/orders/edit-order/edit-order.component';
 import { CreatePromoComponent } from './admin/promotions/create-promo/create-promo.component';
 import { RouterModule } from '@angular/router';
+import { EditProfileComponent } from './admin/profile/edit-profile/edit-profile.component';
+import { ViewProfileComponent } from './admin/profile/view-profile/view-profile.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { RouterModule } from '@angular/router';
     PromotionsComponent,
     EditOrderComponent,
     CreatePromoComponent,
+    EditProfileComponent,
+    ViewProfileComponent,
   ],
   imports: [
     BrowserModule,

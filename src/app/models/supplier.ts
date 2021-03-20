@@ -1,9 +1,18 @@
+
+export interface Roles {
+  supplier: boolean;
+  admin: boolean;
+  customer: boolean;
+}
+
 export class User {
+  id?: string;
   fullName?: string;
   emailAddress?: string;
   phoneNo?: string;
   password?: string;
   confirmpassword?: string;
+  roles: Roles | undefined;
 }
 
 export class CompanyDetails{
