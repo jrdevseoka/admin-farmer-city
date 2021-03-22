@@ -1,8 +1,7 @@
 
 export interface Roles {
-  supplier: boolean;
-  admin: boolean;
-  customer: boolean;
+  id: string;
+  roleName: string;
 }
 
 export class User {
@@ -19,11 +18,24 @@ export class CompanyDetails{
 farmName?: string;
 streetAddress?: string;
 city?: string;
-province?: string;
+province?: Province;
 zipCode?: string;
 status?: string;
 farmCertificate?: string;
 farmCIPCertificate?:string;
+}
+
+export interface AccountInfo{
+   id: string;
+   bankInfo: Bank
+   accountType: string;
+   accountName: string;
+   AccountHolder: string;
+}
+export interface Bank{
+  id: string;
+  bankName: string;
+  bankCode: string;
 }
 export class paymentDetails{
   accountHolderName?: string;

@@ -34,6 +34,8 @@ import { CreatePromoComponent } from './admin/promotions/create-promo/create-pro
 import { RouterModule } from '@angular/router';
 import { EditProfileComponent } from './admin/profile/edit-profile/edit-profile.component';
 import { ViewProfileComponent } from './admin/profile/view-profile/view-profile.component';
+import { RegisterComponent } from './admin/register/register.component';
+import { ForgotPasswrodComponent } from './admin/forgot-passwrod/forgot-passwrod.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { ViewProfileComponent } from './admin/profile/view-profile/view-profile.
     CreatePromoComponent,
     EditProfileComponent,
     ViewProfileComponent,
+    RegisterComponent,
+    ForgotPasswrodComponent,
   ],
   imports: [
     BrowserModule,

@@ -151,7 +151,7 @@
                                 </div>
                             </section>
 
-                            <section id="paymentInformation" formGroupName="paymentDetails" *ngIf="step==3 ">
+                            <section id="paymentInformation" formGroupName="accountDetails" *ngIf="step==3 ">
                                 <div class="justify-between text-farmer-green  my-6 lg:flex flex-col align-middle">
                                     <div class="flex flex-row items-center">
                                         <div class="w-1/4">
@@ -193,8 +193,8 @@
                             <div class="px-4 py-3 border-t-2 border-gray-50 text-right sm:px-6">
                                 <a (click)="previous()" *ngIf="step !=1" class="ml-8 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-farmer-yellow bg-transparent hover:bg-farmer-green-shade-1">Back</a>
                                 <button type="submit" *ngIf="step !=3 " class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
-                            Next
-                          </button>
+                                     Next
+                                </button>
                                 <button *ngIf="step==3" type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
                               Create a new supplier
                           </button>

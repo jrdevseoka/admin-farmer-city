@@ -14,9 +14,15 @@ import { PromotionsComponent } from './admin/promotions/promotions.component';
 import { CreatePromoComponent } from './admin/promotions/create-promo/create-promo.component';
 import { ViewProfileComponent } from './admin/profile/view-profile/view-profile.component';
 import { EditProfileComponent } from './admin/profile/edit-profile/edit-profile.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './admin/register/register.component';
+import { ForgotPasswrodComponent } from './admin/forgot-passwrod/forgot-passwrod.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
+  {path: '', redirectTo:'/sign-in', pathMatch: 'full'},
+  {path: 'sign-in', component: LoginComponent},
+  {path: 'create-account', component:RegisterComponent},
+  {path: 'forgot-password', component: ForgotPasswrodComponent},
   {path: 'create-supplier', component: CreateSupplierComponent},
   {path: 'create-product', component: CreateProductComponent},
   {path: 'supplier', component:SupplierComponent},
