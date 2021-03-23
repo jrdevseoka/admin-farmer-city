@@ -11,8 +11,9 @@ export class ViewApplicationComponent implements OnInit {
 
   constructor(public activated:  ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.supplierID = this.activated.snapshot.paramMap.get('ref');
+    console.log(this.supplierID)
   }
 
 }
