@@ -105,8 +105,8 @@ export class AuthService {
     }
 //Authentication and Authorization
 
-signIn(email:string, password:string){
-  return this.afAuth.signInWithEmailAndPassword(email, password).then(
+signIn(){
+  return this.afAuth.signInWithEmailAndPassword(this.userSignUpForm.controls.emailAddress.value, this.userSignUpForm.controls.password.value).then(
     (results)=> {
       this.ngZone.run(()=>{
         this.loginStatus = true;
@@ -117,7 +117,7 @@ signIn(email:string, password:string){
   ).catch(error => {
     this.loginStatus = false;
     this.loginMessage = `Incorrect username or password`
-    error.message
+    error.message;
   })
 }
 
