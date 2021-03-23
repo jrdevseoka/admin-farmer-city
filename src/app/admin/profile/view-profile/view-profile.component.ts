@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { AccountInfo, Bank, Province, Roles } from 'src/app/models/supplier';
+import { Accounts, Bank, Province, Roles } from 'src/app/models/supplier';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -12,11 +12,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class ViewProfileComponent implements OnInit {
   step: any = 1;
   provinces: Observable<Province[]>;
-  bankType: Observable<AccountInfo[]>
+  bankType: Observable<Accounts[]>
   bankName: Observable<Bank[]>;
   userType: Observable<Roles[]>;
-
-
   userInformation:  FormGroup;
   constructor(
     public form: FormBuilder,
@@ -53,7 +51,7 @@ export class ViewProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userInformation = this.auth.userInformationForm();
+
     this.userType = this.auth.getUserType();
     this.bankName = this.auth.getBankName();
     this.provinces = this.auth.getProvinces();

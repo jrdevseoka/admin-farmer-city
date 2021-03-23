@@ -36,6 +36,7 @@ import { EditProfileComponent } from './admin/profile/edit-profile/edit-profile.
 import { ViewProfileComponent } from './admin/profile/view-profile/view-profile.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswrodComponent } from './admin/forgot-passwrod/forgot-passwrod.component';
+import { HomeComponent } from './admin/home/home.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ForgotPasswrodComponent } from './admin/forgot-passwrod/forgot-passwrod
     ViewProfileComponent,
     RegisterComponent,
     ForgotPasswrodComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

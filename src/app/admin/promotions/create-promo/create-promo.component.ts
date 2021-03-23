@@ -17,7 +17,7 @@ import { ProductService } from 'src/app/services/product/product.service';
   styleUrls: ['./create-promo.component.css']
 })
 export class CreatePromoComponent implements OnInit {
-  formPromotion: FormGroup;
+formPromotion: FormGroup;
  product: any;
  products: any;
 

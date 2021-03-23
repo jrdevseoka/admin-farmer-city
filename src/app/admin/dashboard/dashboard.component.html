@@ -101,30 +101,30 @@
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="bg-white divide-y divide-gray-200">
-                                                <tr>
+                                            <tbody class="bg-white divide-y divide-gray-200" *ngFor="let item of suppliers | async">
+                                                <tr *ngIf="!item.status">
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            Schoeman Boedery
+                                                            {{item.farmName}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            Joe Schoeman
+                                                            {{item.fullName}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            joe@schoemanboedery.co.za
+                                                            {{item.emailAddress}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            081-346-0726
+                                                            {{item.phoneNo}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a class=" text-farmer-green hover:text-farmer-yellow-shade-2" [routerLink]="[ '/view-application']">Approve Application</a>
+                                                        <a class=" text-farmer-green hover:text-farmer-yellow-shade-2" [routerLink]="[ '/','view-application', item.id]">Approve Application</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full border-t-2 px-8 py-6 lg:flex justify-between items-center ">
+                <div class=" w-full border-t-2 px-8 py-6 lg:flex justify-between items-center ">
                     <p class="mb-2 lg:mb-0 "> &copy; Copyright 2021</p>
                 </div>
             </div>

@@ -11,7 +11,7 @@ export class User {
   phoneNo?: string;
   password?: string;
   confirmpassword?: string;
-  roles: Roles | undefined;
+  roles?: Roles | undefined;
 }
 
 export class CompanyDetails{
@@ -24,36 +24,29 @@ status?: string;
 farmCertificate?: string;
 farmCIPCertificate?:string;
 }
-
-export interface AccountInfo{
-   id: string;
-   bankInfo: Bank
-   accountType: string;
-   accountName: string;
-   AccountHolder: string;
-}
 export interface Bank{
   id: string;
   bankName: string;
-  bankCode: string;
+}
+export interface Accounts{
+  id?: string,
+  bankType: string;
 }
 export class paymentDetails{
   accountHolderName?: string;
   accountNo?: string;
-  accountType?: string;
-  bankName?: string;
+  accountType?: Accounts;
+  bankName?: Bank;
   bankCode?: string;
 }
 export interface Supplier extends User, CompanyDetails, paymentDetails{
-  supplierID: string;
-  supplierStatus: string ;
+  supplierStatus: boolean ;
 }
 export interface Province {
-  id: string;
+  id?: string;
   provinceName: string;
 }
 export interface Product {
-  payload: any;
   id: string;
   productName: string;
   productDescription: string;

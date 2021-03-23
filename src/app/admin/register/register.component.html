@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </ng-container>
-                        <ng-container formGroupName="farmDetails" *ngIf="step == 2">
+                        <ng-container *ngIf="step == 2">
                             <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                 <div class="block col-span-6 sm:col-span-4 lg:col-span-6">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Farm Name</label>
@@ -46,8 +46,11 @@
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="provinceName" id="province" class="block text-base font-medium text-farmer-green-shade-3">Province</label>
                                         <select class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" formControlName="provinceName" name="provinceName">
-                                  <option value="" defaultSelected>Select Province</option>
-                                </select>
+                                          <option value="" ngDefaultControl>Select Province</option>
+                                          <ng-container *ngFor="let item of provinces | async" >
+                                            <option value="{{item.id}}"> {{item.provinceName}}</option>
+                                          </ng-container>
+                                        </select>
                                     </div>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="city">Town/City</label>
@@ -71,7 +74,7 @@
 
                             </div>
                         </ng-container>
-                        <ng-container formGroupName="accountDetails" *ngIf="step ==3">
+                        <ng-container *ngIf="step ==3">
                             <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-4 lg:col-span-6">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Account Holder Name</label>
@@ -81,13 +84,19 @@
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="bankName ">Bank Name</label>
                                     <select class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" formControlName="bankName">
                                       <option value="" ngDefaultControl>Select Bank Name</option>
+                                      <ng-container *ngFor="let item of bankName | async" >
+                                        <option value="{{item.bankName}}"> {{item.bankName}}</option>
+                                      </ng-container>
                                     </select>
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="bankType">Bank Type</label>
-                                    <select class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" formControlName="bankType" name="provinceName">
-                                      <option value="" defaultSelected>Select Province</option>
-                                    </select>
+                                    <select class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-farmer-green focus:border-farmer-green sm:text-sm" formControlName="bankType">
+                                      <option value="" ngDefaultControl>Select Account Type</option>
+                                      <ng-container *ngFor="let item of bankType | async">
+                                        <option value="{{item.bankType}}"> {{item.bankType}}</option>
+                                    </ng-container>
+                                   </select>
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="accountNo ">Account Number</label>

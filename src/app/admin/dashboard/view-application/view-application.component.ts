@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-application',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-application.component.css']
 })
 export class ViewApplicationComponent implements OnInit {
+  supplierID: any;
 
-  constructor() { }
+  constructor(public activated:  ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.supplierID = this.activated.snapshot.paramMap.get('ref');
   }
 
 }
