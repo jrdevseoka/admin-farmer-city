@@ -50,14 +50,6 @@ export class CreatePromoComponent implements OnInit {
     console.log(this.products)
   }
   createPromotion(){
-<<<<<<< HEAD
-    const rate = Number(this.formPromotion.get('percentage'));
-    this.firestore.collection('product').doc(this.productID).valueChanges().subscribe(results =>{
-      this.product = results as Product;
-      console.log(this.product.productPrice );
-    })
-
-=======
     const rate = Number(this.formPromotion.get('percentageOff')?.value)/100
     let price =  Number(this.product.productPrice);
     let promoPrice: number;
@@ -78,7 +70,6 @@ export class CreatePromoComponent implements OnInit {
         console.log(err.message)
       })
     }
-    
->>>>>>> parent of b2d7d01 (Auto Cancel Promo)
+
   }
 }
