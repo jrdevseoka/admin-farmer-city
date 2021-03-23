@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import 'alpinejs';
+import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/models/supplier';
@@ -49,11 +50,35 @@ export class CreatePromoComponent implements OnInit {
     console.log(this.products)
   }
   createPromotion(){
+<<<<<<< HEAD
     const rate = Number(this.formPromotion.get('percentage'));
     this.firestore.collection('product').doc(this.productID).valueChanges().subscribe(results =>{
       this.product = results as Product;
       console.log(this.product.productPrice );
     })
 
+=======
+    const rate = Number(this.formPromotion.get('percentageOff')?.value)/100
+    let price =  Number(this.product.productPrice);
+    let promoPrice: number;
+
+    const promotionPrice = rate * Number(this.product.productPrice);
+    promoPrice = price - promotionPrice;
+    promoStatus: true;
+    let newPrice : any  = {
+      'promoPrice' : promoPrice,
+      'promoStatus': true,
+      'dateStarted': new Date(this.formPromotion.get('dateStarted')?.value).toISOString(),
+      'dateEnded': new Date(this.formPromotion.get('dateEnded')?.value).toISOString(),
+    }
+    if(this.formPromotion.valid){
+      this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err.message)
+      })
+    }
+    
+>>>>>>> parent of b2d7d01 (Auto Cancel Promo)
   }
 }
