@@ -17,6 +17,7 @@ import { EditProfileComponent } from './admin/profile/edit-profile/edit-profile.
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswrodComponent } from './admin/forgot-passwrod/forgot-passwrod.component';
+import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/sign-in', pathMatch: 'full'},
@@ -35,8 +36,8 @@ const routes: Routes = [
   {path: 'promotions', component:PromotionsComponent},
   {path: 'create-promo/:ref', component: CreatePromoComponent},
   {path: 'edit-profile', component: EditProfileComponent},
-  {path: 'view-profile', component: ViewProfileComponent}
-
+  {path: 'view-profile', component: ViewProfileComponent},
+  {path: 'users', component: UsersComponent}
 ];
 
 @NgModule({
