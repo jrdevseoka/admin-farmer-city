@@ -39,7 +39,7 @@
                                 <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-3" *ngIf="product">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" class="block text-base font-medium text-farmer-green-shade-3" for="productName">Product Name</label>
-                                        <input type="text" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg text-farmer-green" formControlName="percentageOff" placeholder="{{product.productName}}" readonly>
+                                        <input type="text" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg text-farmer-green" formControlName="percentageOff" placeholder="{{product.productName}}" value="{{product.productName}}" readonly>
                                         <!-- <select formControlName="productName" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg">
                                             <option value="" defaultSelected> Select Product</option>
                                             <ng-container *ngFor="let item of products | async">
@@ -62,7 +62,7 @@
                                         <input type="date" formControlName="dateEnded" class="mt-1 focus:ring-farmer-green py-3 focus:border-farmer-green block w-2/4 shadow-sm sm:text-sm border-gray-300 rounded-lg" placeholder="Unit Price in Rands">
                                     </div>
                                 </div>
-                                <button type="submit" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                                <button type="submit"  class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
                                   Create Promotion
                               </button>
                             </form>

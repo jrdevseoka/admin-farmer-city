@@ -20,23 +20,27 @@ import { UserService } from '../users/user.service';
   providedIn: 'root'
 })
 export class AuthService {
+  newUser: any;
   confirmMessage:string = ''
   loginMessage: string = ''
+  applicationStatus: boolean = true;
   registrationMessage: string =''
   userTypeCollection: AngularFirestoreCollection<Roles>;
   provinceCollection: AngularFirestoreCollection<Province>;
   bankTypeCollection: AngularFirestoreCollection<Accounts>
   bankNameCollection: AngularFirestoreCollection<Bank>;
   userState: any;
-  loginStatus: boolean = true
+  loginStatus: boolean = true;
+  userSignUpForm: FormGroup;
   constructor(
     private afAuth: AngularFireAuth,
     protected form: FormBuilder,
     private firestore: AngularFirestore,
     private route: Router,
     private ngZone: NgZone,
+    private userServ: UserService
     ){
-
+      this.userSignUpForm = this.userServ.userInformationForm()
       this.afAuth.authState.subscribe( user=>{
         if(user){
           this.userState = user;
@@ -100,6 +104,7 @@ export class AuthService {
       );
     }
 //Authentication and Authorization
+
 signIn(email:string, password:string){
   return this.afAuth.signInWithEmailAndPassword(email, password).then(
     (results)=> {
@@ -120,15 +125,19 @@ SignUp(email: string, password:string){
   return this.afAuth.createUserWithEmailAndPassword(email,password).then(
     result =>{
       this.ngZone.run(()=>{
+        const id= result.user?.uid;
 
+        this.firestore.collection<User>('users').doc(id).set(this.userSignUpForm.value);
         this.loginMessage = `User account created! Our administrator will audit the
         application in order to approve or decline the application`;
+        console.log(this.loginMessage)
         this.route.navigate(['home']);
       })
     }
   ).catch(error =>{
     this.loginMessage = `User account could not be created`;
     console.log(error.message);
+    this.route.navigate(['create-account'])
   })
 }
   forgotPassword(email: string){

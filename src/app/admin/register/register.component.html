@@ -7,7 +7,7 @@
                 <div class="w-full lg:7/12 p-5 lg:rounded-l-none">
                     <h3 class="pt-4 text-3xl text-center text-farmer-green">Create an Account</h3>
                     <p class="text-lg text-farmer-green-shade-2 text-left">Join our marketplace and start to sell your product to customers without having to stress about the gatekeepers <wbr> or paying payola to a supply chain manager.</p>
-                    <form class="pt-6 pb-8 mb-4 rounded" (ngSubmit)="createAccount()" [formGroup]="userSignUpForm">
+                    <form class="pt-6 pb-8 mb-4 rounded" [formGroup]="userSignUpForm">
                         <ng-container *ngIf="step ==1">
                             <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-4 lg:col-span-6">
@@ -38,7 +38,7 @@
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Farm Name</label>
                                     <input placeholder="Smith Fruit & Veg Farm" class="py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="farmName" name="farmName" />
                                 </div>
-                                <ng-container formGroupName="address">
+                                <ng-container>
                                     <div class="col-span-6 sm:col-span-3">
                                         <label class="block text-base font-medium text-farmer-green-shade-3" for="streetAddress">Street Address</label>
                                         <input class="py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="streetAddress" name="streetAddress" />
@@ -116,7 +116,7 @@
                           </button>
                         </div>
                         <div class="px-4 mb-6 text-center" *ngIf="step ==3">
-                            <button class="w-full px-4 py-2 font-bold text-farmer-white bg-farmer-green-shade-1 rounded-lg hover:bg-farmer-green-shade-2">
+                            <button (click)="createAccount()" class="w-full px-4 py-2 font-bold text-farmer-white bg-farmer-green-shade-1 rounded-lg hover:bg-farmer-green-shade-2">
                               Register Account
                             </button>
                         </div>

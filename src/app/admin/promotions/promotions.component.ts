@@ -12,7 +12,8 @@ import { Product } from 'src/app/models/supplier';
 export class PromotionsComponent implements OnInit {
   productCollection: AngularFirestoreCollection<Product>;
   products: Observable<Product[]>
-  constructor(public firestore: AngularFirestore) {
+  constructor(public firestore: AngularFirestore,
+    ) {
 
     this.productCollection = this.firestore.collection<Product>('products');
     this.products = this.productCollection.snapshotChanges().pipe(
@@ -28,5 +29,23 @@ export class PromotionsComponent implements OnInit {
   ngOnInit(): void {
     this.products;
     this.productCollection;
+    let date: Date = new Date();
+
+    const promo: any = {
+    'promoPrice': 0,
+    'promoStatus': false
+    }
+    this.firestore.collection<Product>('products').snapshotChanges().pipe(
+      map( actions => actions.map(
+        e =>{
+          const id = e.payload.doc.id;
+          const data = e.payload.doc.data() as Product;
+          if(data.dateEnded.getTime() > date.getTime()){
+            this.firestore.collection<Product>('products').doc(id).update(promo);
+          }
+        }
+      ))
+    )
   }
+
 }

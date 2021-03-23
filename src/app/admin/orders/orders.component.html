@@ -31,7 +31,7 @@
                                     <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                                     <div class="text-farmer-green">
                                         <p class="font-bold text-3xl">10</p>
-                                        <p class="text-xl text-farmer-green">Total Orders</p>
+                                        <p class="text-sm text-farmer-green">Total Orders</p>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                     <svg class="w-16 text-green-yellow-shade-2 h-16 mr-4 hidden md:block lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                                     <div class="text-farmer-green">
                                         <p class="font-bold text-3xl">2</p>
-                                        <p class="text-xl text-farmer-green">Delivered Orders</p>
+                                        <p class="text-sm text-farmer-green">Delivered Orders</p>
                                     </div>
                                 </div>
                             </div>
@@ -85,10 +85,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
-                                                <tr>
+                                                <tr *ngFor="let item of products">
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <p class="text-base font-normal text-farmer-black text-left">
-                                                            Anna Smith
+                                                           {{item.productName}}
                                                         </p>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">

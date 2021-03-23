@@ -18,8 +18,8 @@ import { ProductService } from 'src/app/services/product/product.service';
   styleUrls: ['./create-promo.component.css']
 })
 export class CreatePromoComponent implements OnInit {
-  formPromotion: FormGroup;
-  productsCollection: AngularFirestoreCollection<Product>;
+formPromotion: FormGroup;
+productsCollection: AngularFirestoreCollection<Product>;
  products: Observable<Product[]>;
  product: any;
   constructor(
@@ -60,16 +60,41 @@ export class CreatePromoComponent implements OnInit {
     let newPrice : any  = {
       'promoPrice' : promoPrice,
       'promoStatus': true,
-      'dateStarted': new Date(this.formPromotion.get('dateStarted')?.value).toISOString(),
-      'dateEnded': new Date(this.formPromotion.get('dateEnded')?.value).toISOString(),
+      'dateStarted': new Date(this.formPromotion.get('dateStarted')?.value).toDateString(),
+      'dateEnded': new Date(this.formPromotion.get('dateEnded')?.value).toDateString(),
     }
-    if(this.formPromotion.valid){
+   // if(this.formPromotion.valid){
       this.firestore.collection('products').doc(this.productID).update(newPrice).then( res => {
         console.log(res)
       }).catch(err => {
         console.log(err.message)
       })
-    }
+    //}
+   // else{
+      this.formPromotion.reset()
+      alert('not valid')
+   // }
 
+  }
+
+  AutoCancelPromotion(){
+    let date: Date = new Date();
+
+    const promo: any = {
+    'promoPrice': 0,
+    'promoStatus': false
+    }
+    this.firestore.collection<Product>('products').snapshotChanges().pipe(
+      map( actions => actions.map(
+        e =>{
+          const id = e.payload.doc.id;
+          const data = e.payload.doc.data() as Product;
+          this.product = data;
+          if(data.dateEnded.getTime() > date.getTime()){
+            this.firestore.collection<Product>('products').doc(id).update(promo);
+          }
+        }
+      ))
+    )
   }
 }

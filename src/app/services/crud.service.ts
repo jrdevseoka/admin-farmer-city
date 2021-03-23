@@ -1,3 +1,5 @@
+import { Product } from './../models/supplier';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -42,5 +44,18 @@ export class CrudService {
     getProduct(id: string){
       return this.firestore.collection('products').doc(id);
     }
-
+    AutoCancelPromotion(){
+      let date: Date = new Date();
+      this.firestore.collection<Product>('products').snapshotChanges().pipe(
+        map( actions => actions.map(
+          e =>{
+            const id = e.payload.doc.id;
+            const data = e.payload.doc.data() as Product;
+            if(data.dateEnded.getTime() > date.getTime()){
+              this.firestore.collection<Product>('products').doc(id).delete;
+            }
+          }
+        ))
+      )
+    }
 }

@@ -13,7 +13,15 @@ export class User {
   confirmpassword?: string;
   roles?: Roles | undefined;
 }
+export interface Order{
+  id: string;
+  productImage: string;
+  productName: string;
+  productPrice: string;
+  status: string;
+  total: string;
 
+}
 export class CompanyDetails{
 farmName?: string;
 streetAddress?: string;
