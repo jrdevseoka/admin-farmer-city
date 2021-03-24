@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrudService } from './services/crud.service';
 import { CreateUserComponent } from './admin/users/create-user/create-user.component';
 import { CreateSupplierComponent } from './admin/users/create-supplier/create-supplier.component';
-import { SuccessComponent } from './admin/forms/success/success.component';
+import { SuccessComponent } from './admin/success/success.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AdminNavigationComponent } from './admin/admin-navigation/admin-navigation.component';
 import { ViewApplicationComponent } from './admin/dashboard/view-application/view-application.component';

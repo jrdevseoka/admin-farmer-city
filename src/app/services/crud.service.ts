@@ -22,7 +22,10 @@ export class CrudService {
     // creating suppler sign In Details
      this.AfAuth.createUserWithEmailAndPassword(supplier.repDetails.emailAddress,supplier.repDetails.password).then(results=>{
       // saving data of supplier with unique id
-      this.firestore.collection('Supplies').doc(results.user?.uid).set(supplier)
+      this.firestore.collection('Supplies').doc(results.user?.uid).set(supplier).then(
+        results => {
+        }
+      )
      }).catch(error=>{
       console.log(error.message)
      })

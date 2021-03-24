@@ -16,8 +16,6 @@ export class ProductsComponent implements OnInit {
   }
   ngOnInit(){
     this.productCRUD.getProducts().snapshotChanges().subscribe(results=>{
-
-      
       this.products = results;
 
     })

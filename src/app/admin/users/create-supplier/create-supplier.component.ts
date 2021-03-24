@@ -120,7 +120,6 @@ supplierForm = this.form.group({
      ).subscribe();
         // calling fuction to create suplier infdor
          this.crud.saveSupplierInformation(this.supplierForm.value);
-         this.route.navigate(['/success']);
 
     }
   }

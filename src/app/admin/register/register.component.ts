@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Supplier, Province, Bank, Accounts } from 'src/app/models/supplier';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/users/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,61 +25,74 @@ export class RegisterComponent implements OnInit {
   cetificate: any;
   constructor(
     protected form: FormBuilder,
+    public route: Router,
     public afAuth: AuthService,
     public userServ: UserService,
     protected storage: AngularFireStorage
     ) {
       this.userSignUpForm =this.form.group({
+       repDetails: this.form.group({
         fullName: ['', [Validators.required]],
         phoneNo: ['', [Validators.required, Validators.pattern('')]],
         emailAddress: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
         userType: ['supplier', Validators.required],
-        supplierStatus: [false, Validators.required],
+       }),
+       farmDetails: this.form.group({
         farmName: ['',[Validators.required]],
         streetAddress: ['', [Validators.required]],
         city: ['', [Validators.required]],
         provinceName: ['', [Validators.required]],
         farmCertificate: ['',[Validators.required]],
         zipCode: ['', [Validators.required, Validators.pattern('')]],
-        accHolderName: ['', [Validators.required]],
+       }),
+        applicationStatus: [false, Validators.required],
+        accountDetails: this.form.group({
+        accountHolderName: ['', [Validators.required]],
         bankName: ['', [Validators.required]],
-        accountNumber: ['', Validators.required],
-        accountType: ['', [Validators.required]],
-        branchCode: ['',[Validators.required, Validators.pattern('')]]
+        accountNo: ['', Validators.required],
+        bankType: ['', [Validators.required]],
+        bankCode: ['',[Validators.required, Validators.pattern('')]]
+        })
+
        });
    }
 
   ngOnInit(): void {
-
     this.provinces = this.afAuth.getProvinces();
     this.bankName = this.afAuth.getBankName();
     this.bankType = this.afAuth.getAccountType();
+
+
   }
   createAccount(){
+    this.userSignUpForm.asyncValidator;
     this.step = this.step + 1;
+    if(this.step ==3)
+    {
+      //uploadin fileto the database
+    var path = `Certificate/ ${this.cetificate.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
+    const fileRef = this.storage.ref(path)
+     this.storage.upload(path,this.cetificate).snapshotChanges().pipe(
+       finalize(()=>{
 
-    if(this.step == 4){
-      var path = `Certificate/ ${this.cetificate.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
-      const fileRef = this.storage.ref(path);
-      this.storage.upload(path,this.cetificate).snapshotChanges().pipe(
-        finalize(()=>{
+        fileRef.getDownloadURL().subscribe((url)=>{
+        // updating the ceticicate with url
+          this.userSignUpForm.patchValue({
+            farmDetails:{
 
-         fileRef.getDownloadURL().subscribe((url)=>{
-         // updating the ceticicate with url
-           this.userSignUpForm.patchValue({
-             farmDetails:{
-
-               farmCIPCCertificate: "dean"
-             }
-           })
-         })
-
+              farmCIPCCertificate: "dean"
+            }
+          })
         })
-      ).subscribe();
+
+       })
+     ).subscribe();
+        // calling fuction to create suplier infdor
+         this.afAuth.SignUp(this.userSignUpForm.value);
+
     }
-    this.afAuth.SignUp(this.userSignUpForm.controls.emailAddress.value, this.userSignUpForm.controls.emailAddress.value);
   }
   previous(){
     this.step = this.step - 1;

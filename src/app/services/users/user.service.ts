@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { Supplier } from 'src/app/models/supplier';
 
 @Injectable({
@@ -10,7 +10,9 @@ import { Supplier } from 'src/app/models/supplier';
 })
 export class UserService {
   userForm: FormGroup;
-  supplierCollections:  AngularFirestoreCollection<Supplier>
+  supplierCollections:  AngularFirestoreCollection<Supplier>;
+  cetificate: any;
+  storage: any;
   constructor(
     protected firestore: AngularFirestore,
     public form: FormBuilder
@@ -58,5 +60,23 @@ export class UserService {
 
   }
   getUserByID(){
+  }
+  uploadFileToDB(){
+      //uploadin fileto the database
+      var path = `Certificate/ ${this.cetificate.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(path)
+       this.storage.upload(path,this.cetificate).snapshotChanges().pipe(
+         finalize(()=>{
+          fileRef.getDownloadURL().subscribe((url:any)=>{
+          // updating the ceticicate with url
+            this.userForm.patchValue({
+              farmDetails:{
+                farmCIPCCertificate: "dean"
+              }
+            })
+          })
+
+         })
+       ).subscribe();
   }
 }

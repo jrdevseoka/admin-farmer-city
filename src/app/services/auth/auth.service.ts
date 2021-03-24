@@ -21,10 +21,8 @@ import { UserService } from '../users/user.service';
 })
 export class AuthService {
   newUser: any;
-  confirmMessage:string = ''
   loginMessage: string = ''
   applicationStatus: boolean = true;
-  registrationMessage: string =''
   userTypeCollection: AngularFirestoreCollection<Roles>;
   provinceCollection: AngularFirestoreCollection<Province>;
   bankTypeCollection: AngularFirestoreCollection<Accounts>
@@ -105,12 +103,13 @@ export class AuthService {
     }
 //Authentication and Authorization
 
-signIn(){
-  return this.afAuth.signInWithEmailAndPassword(this.userSignUpForm.controls.emailAddress.value, this.userSignUpForm.controls.password.value).then(
+signIn(email:string, password:string){
+  return this.afAuth.signInWithEmailAndPassword(email, password).then(
     (results)=> {
       this.ngZone.run(()=>{
         this.loginStatus = true;
-        this.loginMessage = `Successfully logged in`
+        this.loginMessage = `Successfully logged in`;
+        console.log(this.loginMessage)
         this.route.navigate(['dashboard']);
       })
     }
@@ -121,24 +120,21 @@ signIn(){
   })
 }
 
-SignUp(email: string, password:string){
-  return this.afAuth.createUserWithEmailAndPassword(email,password).then(
+SignUp(supplier: any){
+  return this.afAuth.createUserWithEmailAndPassword(supplier.repDetails.emailAddress,supplier.repDetails.password).then(
     result =>{
-      this.ngZone.run(()=>{
-        const id= result.user?.uid;
-
-        this.firestore.collection<User>('users').doc(id).set(this.userSignUpForm.value);
-        this.loginMessage = `User account created! Our administrator will audit the
-        application in order to approve or decline the application`;
-        console.log(this.loginMessage)
-        this.route.navigate(['home']);
+      const id= result.user?.uid;
+      this.firestore.collection<User>('Supplies').doc(id).set(supplier).then(
+        results => {
+          this.route.navigate(['thank-you']);
+        }
+      ).catch(error =>{
+        this.loginMessage = `User account could not be created`;
+        console.log(error.message);
+        this.route.navigate(['create-account'])
       })
     }
-  ).catch(error =>{
-    this.loginMessage = `User account could not be created`;
-    console.log(error.message);
-    this.route.navigate(['create-account'])
-  })
+  )
 }
   forgotPassword(email: string){
   return this.afAuth.sendPasswordResetEmail(email).then(
@@ -156,9 +152,7 @@ setUserData(user:any){
   const userState: User ={
     id: user.id,
     emailAddress: user.emailAddress,
-    fullName: user.fullName,
-    phoneNo: user.phoneNo,
-    roles: user.roles
+    fullName: user.displayName,
   }
   return userRef.set(userState, {merge:true})
 }

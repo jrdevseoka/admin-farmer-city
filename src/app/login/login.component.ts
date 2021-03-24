@@ -22,5 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   submitMethod(){
+    this.auth.signIn(this.userSignInForm.value.emailAddress, this.userSignInForm.value.password);
   }
 }

@@ -4,7 +4,7 @@ import { AdminNavigationComponent } from './admin/admin-navigation/admin-navigat
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ViewApplicationComponent } from './admin/dashboard/view-application/view-application.component';
 import { CreateSupplierComponent } from './admin/users/create-supplier/create-supplier.component';
-import { SuccessComponent } from './admin/forms/success/success.component';
+import { SuccessComponent } from './admin/success/success.component';
 import { EditOrderComponent } from './admin/orders/edit-order/edit-order.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { CreateProductComponent } from './admin/products/create-product/create-product.component';
@@ -18,17 +18,20 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswrodComponent } from './admin/forgot-passwrod/forgot-passwrod.component';
 import { UsersComponent } from './admin/users/users.component';
+import { HomeComponent } from './admin/home/home.component';
+import { CreateUserComponent } from './admin/users/create-user/create-user.component';
+import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo:'/sign-in', pathMatch: 'full'},
   {path: 'sign-in', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'create-account', component:RegisterComponent},
   {path: 'forgot-password', component: ForgotPasswrodComponent},
   {path: 'create-supplier', component: CreateSupplierComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'create-product', component: CreateProductComponent},
   {path: 'supplier', component:SupplierComponent},
-  {path: 'success', component:SuccessComponent},
   {path:'view-application/:ref', component: ViewApplicationComponent},
   {path:'products', component: ProductsComponent},
   {path: 'orders', component: OrdersComponent},
@@ -37,7 +40,9 @@ const routes: Routes = [
   {path: 'create-promo/:ref', component: CreatePromoComponent},
   {path: 'edit-profile', component: EditProfileComponent},
   {path: 'view-profile', component: ViewProfileComponent},
-  {path: 'users', component: UsersComponent}
+  {path: 'users', component: UsersComponent},
+  {path: 'thank-you', component: SuccessComponent},
+  {path: 'create-user', component: CreateUserComponent}
 ];
 
 @NgModule({

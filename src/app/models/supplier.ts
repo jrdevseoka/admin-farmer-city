@@ -22,15 +22,13 @@ export interface Order{
   total: string;
 
 }
-export class CompanyDetails{
+export class farmDetails{
 farmName?: string;
 streetAddress?: string;
 city?: string;
 province?: Province;
 zipCode?: string;
-status?: string;
 farmCertificate?: string;
-farmCIPCertificate?:string;
 }
 export interface Bank{
   id: string;
@@ -47,13 +45,11 @@ export class paymentDetails{
   bankName?: Bank;
   bankCode?: string;
 }
-export interface Supplier extends User, CompanyDetails, paymentDetails{
-  supplierStatus: boolean ;
+export interface Supplier extends User, farmDetails, paymentDetails{
+  id: string;
+  applicationStatus: boolean ;
 }
-export interface Province {
-  id?: string;
-  provinceName: string;
-}
+export interface Province {id?: string;provinceName: string;}
 export interface Product {
   id: string;
   productName: string;

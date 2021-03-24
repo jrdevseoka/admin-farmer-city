@@ -7,8 +7,8 @@
                 <div class="w-full lg:7/12 p-5 lg:rounded-l-none">
                     <h3 class="pt-4 text-3xl text-center text-farmer-green">Create an Account</h3>
                     <p class="text-lg text-farmer-green-shade-2 text-left">Join our marketplace and start to sell your product to customers without having to stress about the gatekeepers <wbr> or paying payola to a supply chain manager.</p>
-                    <form class="pt-6 pb-8 mb-4 rounded" [formGroup]="userSignUpForm">
-                        <ng-container *ngIf="step ==1">
+                    <form class="pt-6 pb-8 mb-4 rounded" [formGroup]="userSignUpForm" (ngSubmit)="createAccount()">
+                        <ng-container formGroupName="repDetails" *ngIf="step ==1">
                             <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-4 lg:col-span-6">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="fullName">Name:</label>
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </ng-container>
-                        <ng-container *ngIf="step == 2">
+                        <ng-container formGroupName="farmDetails" *ngIf="step == 2">
                             <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                 <div class="block col-span-6 sm:col-span-4 lg:col-span-6">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Farm Name</label>
@@ -74,11 +74,11 @@
 
                             </div>
                         </ng-container>
-                        <ng-container *ngIf="step ==3">
+                        <ng-container formGroupName="accountDetails" *ngIf="step ==3">
                             <div class="px-4 py-5 sm:p-6 grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-4 lg:col-span-6">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="farmName">Account Holder Name</label>
-                                    <input class="py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="Farm Name" formControlName="farmName" name="farmName " />
+                                    <input class="py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" placeholder="Farm Name" formControlName="accountHolderName" name="farmName " />
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="bankName ">Bank Name</label>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="accountNo ">Account Number</label>
-                                    <input class="py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="accountNo" name=" accountNo " />
+                                    <input class="py-3 focus:ring-farmer-green focus:border-farmer-green block w-full shadow-sm sm:text-sm border-gray-300 rounded-lg" type="text" formControlName="accountNo" name="accountNo" />
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label class="block text-base font-medium text-farmer-green-shade-3" for="bankCode">Branch Code</label>
@@ -109,14 +109,15 @@
 
                             </div>
                         </ng-container>
+
                         <div class="px-4 py-3 border-t-2 border-gray-50 text-right sm:px-6">
                             <a (click)="previous()" *ngIf="step !=1" class=" cursor-pointer ml-8 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-farmer-yellow bg-transparent hover:bg-farmer-green-shade-1">Back</a>
-                            <button type="submit" *ngIf="step !=3 " class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
+                            <button type="submit" *ngIf="step !=3" class="mx-2 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-base font-medium rounded-md text-farmer-white bg-farmer-green hover:bg-farmer-green-shade-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-farmer-green-shade-1">
                                Next
                           </button>
                         </div>
                         <div class="px-4 mb-6 text-center" *ngIf="step ==3">
-                            <button (click)="createAccount()" class="w-full px-4 py-2 font-bold text-farmer-white bg-farmer-green-shade-1 rounded-lg hover:bg-farmer-green-shade-2">
+                            <button class="w-full px-4 py-2 font-bold text-farmer-white bg-farmer-green-shade-1 rounded-lg hover:bg-farmer-green-shade-2">
                               Register Account
                             </button>
                         </div>
